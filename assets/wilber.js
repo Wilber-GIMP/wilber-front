@@ -4,19 +4,23 @@
             easing = mina.easeinout;
 
         [].slice.call ( document.querySelectorAll( '#grid > a' ) ).forEach( function( el ) {
-            var s = Snap( el.querySelector( 'svg' ) ), path = s.select( 'path' ),
-                pathConfig = {
-                    from : path.attr( 'd' ),
-                    to : el.getAttribute( 'data-path-hover' )
-                };
+            var s = Snap( el.querySelector( 'svg' ) );
 
-            el.addEventListener( 'mouseenter', function() {
-                path.animate( { 'path' : pathConfig.to }, speed, easing );
-            } );
+            var p = "M 180,160 0,218 0,0 180,0 z";
 
-            el.addEventListener( 'mouseleave', function() {
-                path.animate( { 'path' : pathConfig.from }, speed, easing );
-            } );
+            // path = s.select( 'path' ),
+            //     pathConfig = {
+            //         from : path.attr( 'd' ),
+            //         to : el.getAttribute( 'data-path-hover' )
+            //     };
+
+            // el.addEventListener( 'mouseenter', function() {
+            //     p.animate( { 'path' : 'M 180,160 0,218 0,0 180,0 z' }, speed, easing );
+            // } );
+            //
+            // el.addEventListener( 'mouseleave', function() {
+            //     p.animate(0, speed, easing );
+            // } );
         } );
     }
 
