@@ -7,6 +7,7 @@
             var s = Snap( el.querySelector( 'svg' ) );
 
             var p = "M 180,160 0,218 0,0 180,0 z";
+            var rect="m 180,34.57627 -180,0 L 0,0 180,0 z"
 
             // path = s.select( 'path' ),
             //     pathConfig = {
