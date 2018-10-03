@@ -103,9 +103,7 @@ body{
     width: 100%;
     height: 100%;
 }
-.grid svg path {
-    fill: #fff;
-}
+
 .grid a:hover figure img {
     opacity: 1;
 }
