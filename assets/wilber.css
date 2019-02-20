@@ -5,11 +5,25 @@ grey-light: #9c9c9c
 body{
     background-color: #151412;
 }
-
-.grid {
-    margin: 177px auto 120px;
+.head .types-menu{
+    padding: 1em 0;
+    border-bottom: 0.15em solid;
+    text-align: center;
 }
-
+.head .type-buttons{
+    cursor: pointer;
+    padding: .7em 3em;
+    margin-left: 1.5em;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: bold;
+    border: 3px solid #fff;
+    background: transparent;
+    color: #fff;
+}
+.grid{
+    margin-top: 1em;
+}
 .grid a {
     max-width: 400px;
     color: #333;
