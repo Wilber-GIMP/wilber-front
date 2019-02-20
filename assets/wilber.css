@@ -114,20 +114,7 @@ body{
     font-size: 0.85em;
 }
 
-@media screen and (max-width: 58em) {
-    .grid .item{
-        width: 33.333%;
-    }
-}
-
 @media screen and (max-width: 45em) {
-    .grid {
-        max-width: 500px;
-    }
-
-    .grid .item {
-        width: 50%;
-    }
 
     .grid figcaption h2 {
         margin-bottom: 0px;
@@ -137,15 +124,5 @@ body{
     .grid figcaption p {
         margin: 0;
         padding: 0 10px;
-    }
-}
-
-@media screen and (max-width: 27em) {
-    .grid {
-        max-width: 250px;
-    }
-
-    .grid .item {
-        width: 100%;
     }
 }
