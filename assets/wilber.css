@@ -9,19 +9,9 @@ body{
     max-width:  100%;
 }
 .grid {
-    position: relative;
     margin: 177px auto 120px;
-    /*max-width: 1000px;*/
-    /*width: 90%;*/
 }
-.grid .item{
-    position: relative;
-    overflow: hidden;
-    margin: 5px;
-    display: grid;
-    width: 30%;
-    float: left;
-}
+
 .grid a {
     max-width: 400px;
     color: #333;
@@ -84,7 +74,7 @@ body{
     text-transform: uppercase;
     letter-spacing: 1px;
     font-weight: bold;
-    top: 50%;
+    top: 60%;
     left: 50%;
     border: 3px solid #fff;
     background: transparent;
