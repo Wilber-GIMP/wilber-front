@@ -19,7 +19,27 @@ body{
     font-weight: bold;
     border: 3px solid #fff;
     background: transparent;
+}
+.btn{
+    position: relative;
     color: #fff;
+    transition: all 0.3s ease 0s;
+}
+.btn:hover,
+.btn:focus {
+    color: black;
+    background-color: transparent;
+}
+.btn:after{
+    content: "";
+    position: absolute;
+    transition: all 0.3s ease 0s;
+    z-index: -1;
+    background: white;
+    top:0; bottom: 0; left: 0; right: 100%;
+}
+.btn:hover:after, .btn:focus:after {
+    right:0;
 }
 .grid{
     margin-top: 1em;
