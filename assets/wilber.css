@@ -39,7 +39,6 @@ body{
     content: "";
     width: 100%;
     height: 100%;
-    transform: rotate(45deg);
     background-color: #151412a6;
     position: absolute;
     top: -100%;
@@ -115,7 +114,7 @@ body{
     transform: translateY(0);
 }
 .grid a:hover figure:after{
-    top: -30%;
+    top: 0%;
     opacity: 1;
 }
 .grid .item .item-atributes i{
