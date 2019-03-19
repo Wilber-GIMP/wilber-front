@@ -1,0 +1,10 @@
+{
+  "name": "wilber",
+  "version": "1.0.0",
+  "description": "Wilber front end react app for web",
+  "main": "index.js",
+  "repository": "git@github.com:Wilber-GIMP/wilber-front.git",
+  "author": "Robin",
+  "license": "GNU",
+  "private": false
+}
