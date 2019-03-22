@@ -3,3 +3,5 @@ node_modules/
 
 # Project Build
 dist/
+
+./idea/workspace.xml
