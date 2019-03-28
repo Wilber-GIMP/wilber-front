@@ -1,11 +1,11 @@
-Be sure to have the latest node version.
+## Be sure to have the latest node version.
 Version used 11.11
 
-#Install dependences
+# Install dependences
 `npm install`
 
-#Run development version
+# Run development version
 `npm start`
 
-#Build for Production
+# Build for Production
 `npm run build`
