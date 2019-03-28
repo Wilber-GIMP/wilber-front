@@ -1,0 +1,7 @@
+# Node Modules
+node_modules/
+
+# Project Build
+dist/
+
+.idea/
