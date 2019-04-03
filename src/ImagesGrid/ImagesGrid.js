@@ -13,6 +13,7 @@ class ImagesGrid extends Component{
     componentDidMount(){
         axios.get("/api/asset/")
             .then((response) => {
+                console.log(response);
                 this.setState({
                     assetsList: response.data
                 });

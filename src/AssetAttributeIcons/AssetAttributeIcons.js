@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import "./AssetAttributeIcons.scss";
 
 class AssetAttributeIcons extends Component{
     render(){
