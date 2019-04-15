@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './HeaderMenu.scss';
 
 class HeaderMenu extends Component {
     render() {

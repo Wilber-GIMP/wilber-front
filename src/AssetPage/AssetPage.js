@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import axios from "axios";
 import AssetAttributeIcons from "../AssetAttributeIcons/AssetAttributeIcons";
 import "./AssetPage.scss"
-
+import ButtonMain from "../ButtonMain/ButtonMain";
 
 class AssetPage extends Component{
     constructor(props){
@@ -12,9 +12,9 @@ class AssetPage extends Component{
         }
     }
     componentDidMount() {
-        const {assetid} = this.props.location.id;
-        console.log(assetid);
-        axios.get("/api/asset/"+ assetid)
+        const {id} = this.props.match.params;
+        console.log(id);
+        axios.get("/api/asset/"+ id )
             .then((response) => {
                 console.log(response);
                 this.setState({
@@ -30,7 +30,7 @@ class AssetPage extends Component{
                     <AssetAttributeIcons/>
                 </div>
                 <div className="col-6">
-                    <button className="type-buttons">DOWNLOAD</button>
+                    <ButtonMain title="Download"/>
                     <h2 className="asset-name">{this.state.asset.name}</h2>
                     <p className="asset-description">{this.state.asset.description}</p>
                 </div>

@@ -1,6 +1,10 @@
+/** This is a grid with thumbnails images from the available
+ * assets. It's displayed in the  main page /Home
+**/
 import React, { Component } from 'react';
 import axios from "axios";
-import AssetThumb from "../AssetThumb/AssetThumb"
+import AssetThumb from "../AssetThumb/AssetThumb";
+import "./ImagesGrid.scss";
 
 class ImagesGrid extends Component{
     constructor(){
@@ -13,7 +17,6 @@ class ImagesGrid extends Component{
     componentDidMount(){
         axios.get("/api/asset/")
             .then((response) => {
-                console.log(response);
                 this.setState({
                     assetsList: response.data
                 });
@@ -27,7 +30,7 @@ class ImagesGrid extends Component{
                     <div className="row">
                         { this.state.assetsList.map((asset)=> {
                             return (
-                                <AssetThumb data={asset}/>
+                                <AssetThumb data={asset} key={asset.id}/>
                             );
                         })
                         }
