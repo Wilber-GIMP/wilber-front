@@ -28,7 +28,7 @@ class AssetPage extends Component{
                 <div className="col-6">
                     <img className="asset-img"src={this.state.asset.image} alt=""/>
                     <AssetAttributeIcons/>
-                    <ButtonMain title="Download"/>
+                    <a href={this.state.asset.file}><ButtonMain title="Download"></ButtonMain></a>
                 </div>
                 <div className="col-6">
                     <h2 className="asset-name">{this.state.asset.name}</h2>
