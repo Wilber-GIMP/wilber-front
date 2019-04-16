@@ -1,16 +1,16 @@
+@import "../variables";
 
 .grid{
   margin-top: 1em;
 }
 .grid a {
   max-width: 400px;
-  color: #333;
 }
 .grid figure {
   position: relative;
   overflow: hidden;
   margin: 5px;
-  background: #333;
+  background: $grey-dark;
   border-radius: 20px;
 }
 .grid figure:after{
@@ -45,29 +45,16 @@
   font-weight: 300;
   font-size: 130%;
 }
-.grid figcaption p {
-  padding: 0 20px;
-  color: #fff;
-  font-weight: 300;
-}
-.grid figcaption h2,
-.grid figcaption p {
+.grid figcaption h2{
   opacity: 0;
   transform: translateY(-20px);
   transition: opacity 0.3s, transform 0.3s;
 }
 .grid figure .btn-main {
-  cursor: pointer;
   position: absolute;
   padding: 4px 20px;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  font-weight: bold;
   top: 60%;
   left: 50%;
-  //border: 3px solid #fff;
-  //background: transparent;
-  //color: #fff;
   opacity: 0;
   transform: translateY(-50%) translateX(-50%) scale(0.25);
   transition: opacity 0.3s, transform 0.3s;
