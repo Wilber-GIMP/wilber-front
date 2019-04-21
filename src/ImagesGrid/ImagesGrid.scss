@@ -2,9 +2,9 @@
 
 .grid{
   margin-top: 1em;
-}
-.grid a {
-  max-width: 400px;
+  a {
+    max-width: 400px;
+  }
 }
 .grid figure {
   position: relative;
@@ -49,6 +49,11 @@
   opacity: 0;
   transform: translateY(-20px);
   transition: opacity 0.3s, transform 0.3s;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.asset-thumb-info{
+  padding: 5px 10px;
 }
 .grid figure .btn-main {
   position: absolute;

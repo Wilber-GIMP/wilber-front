@@ -4,7 +4,14 @@
 .item-atributes span{
   margin-left: 2px;
 }
-.item-atributes *{
-  color:  #9c9c9c;
-  font-size: 1.2em;
+
+.item-atributes {
+  .atribute{
+    display: inline;
+    text-color:  #9c9c9c;
+    font-size: 1.2em;
+    &:first-child i, &:first-child span{
+      color: white;
+    }
+  }
 }

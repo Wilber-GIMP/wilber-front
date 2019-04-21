@@ -10,8 +10,10 @@ class AssetThumb extends Component{
                    <figure>
                        <img src={this.props.data.image} alt=""/>
                        <figcaption>
-                           <h2>{this.props.data.name}</h2>
-                           <ButtonMain title="View"/>
+                           <div className="asset-thumb-info">
+                               <h2>{this.props.data.name}</h2>
+                               <ButtonMain title="View"/>
+                           </div>
                        </figcaption>
                    </figure>
                </Link>
