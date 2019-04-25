@@ -8,7 +8,8 @@ class AssetPage extends Component{
     constructor(props){
         super(props);
         this.state = {
-            asset: {}
+            asset: {},
+            owner: {}
         }
     }
     componentDidMount() {
@@ -16,9 +17,9 @@ class AssetPage extends Component{
         console.log(id);
         axios.get("/api/asset/"+ id )
             .then((response) => {
-                console.log(response);
                 this.setState({
-                    asset: response.data
+                    asset: response.data,
+                    owner: response.data.owner
                 });
             });
     }
@@ -27,7 +28,10 @@ class AssetPage extends Component{
             <div className="row asset-content">
                 <div className="col-6">
                     <img className="asset-img"src={this.state.asset.image} alt=""/>
-                    <AssetAttributeIcons/>
+                    <div className="asset-att">
+                        <span>{"Made by: " + this.state.owner.first_name + " " + this.state.owner.last_name}</span>
+                        <AssetAttributeIcons/>
+                    </div>
                     <a href={this.state.asset.file}><ButtonMain title="Download"></ButtonMain></a>
                 </div>
                 <div className="col-6">
