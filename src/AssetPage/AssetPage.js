@@ -9,7 +9,9 @@ class AssetPage extends Component{
         super(props);
         this.state = {
             asset: {},
-            owner: {}
+            owner: {},
+            nlikes: 0,
+            ndownloads: 0,
         }
     }
     componentDidMount() {
@@ -18,8 +20,11 @@ class AssetPage extends Component{
             .then((response) => {
                 this.setState({
                     asset: response.data,
-                    owner: response.data.owner
+                    owner: response.data.owner,
+                    nlikes: response.data.num_likes,
+                    ndownloads: response.data.num_ndownloads,
                 });
+                console.log(response.data);
             });
     }
     render(){
@@ -29,7 +34,7 @@ class AssetPage extends Component{
                     <img className="asset-img"src={this.state.asset.image} alt=""/>
                     <div className="asset-att">
                         <span>{"Made by: " + this.state.owner.first_name + " " + this.state.owner.last_name}</span>
-                        <AssetAttributeIcons/>
+                        <AssetAttributeIcons nlikes={this.state.nlikes} ndownloads={this.state.ndownloads}/>
                     </div>
                     <a href={this.state.asset.file}><ButtonMain title="Download"></ButtonMain></a>
                 </div>
