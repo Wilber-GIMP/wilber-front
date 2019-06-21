@@ -13,3 +13,7 @@ Version used 11.11
 
 # Build for Production
 `npm run build`
+
+# Api Addrs
+To avoid cors error we use a proxy configuration.
+This is seted in the webpack.common.js

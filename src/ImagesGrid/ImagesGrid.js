@@ -2,9 +2,11 @@
  * assets. It's displayed in the  main page /Home
 **/
 import React, { Component } from 'react';
-import axios from "axios";
-import AssetThumb from "../AssetThumb/AssetThumb";
+import AssetThumb from "../AssetThumb/AssetThumb"; 
+import ApiService from "../providers/ApiService";
 import "./ImagesGrid.scss";
+import axios from "axios";
+
 
 class ImagesGrid extends Component{
     constructor(){
@@ -13,7 +15,7 @@ class ImagesGrid extends Component{
             assetsList: []
         }
     }
-    //Get list of assets from the server when component mount
+
     componentDidMount(){
         axios.get("/api/asset/")
             .then((response) => {

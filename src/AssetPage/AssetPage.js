@@ -7,6 +7,8 @@ import ButtonMain from "../ButtonMain/ButtonMain";
 class AssetPage extends Component{
     constructor(props){
         super(props);
+        const {id} = this.props.match.params;
+        this.id = id;
         this.state = {
             asset: {},
             owner: {},
@@ -15,8 +17,7 @@ class AssetPage extends Component{
         }
     }
     componentDidMount() {
-        const {id} = this.props.match.params;
-        axios.get("/api/asset/"+ id )
+        axios.get("/api/asset/"+ this.id )
             .then((response) => {
                 this.setState({
                     asset: response.data,
@@ -24,7 +25,6 @@ class AssetPage extends Component{
                     nlikes: response.data.num_likes,
                     ndownloads: response.data.num_ndownloads,
                 });
-                console.log(response.data);
             });
     }
     render(){
@@ -34,7 +34,7 @@ class AssetPage extends Component{
                     <img className="asset-img"src={this.state.asset.image} alt=""/>
                     <div className="asset-att">
                         <span>{"Made by: " + this.state.owner.first_name + " " + this.state.owner.last_name}</span>
-                        <AssetAttributeIcons nlikes={this.state.nlikes} ndownloads={this.state.ndownloads}/>
+                        <AssetAttributeIcons nlikes={this.state.nlikes} ndownloads={this.state.ndownloads} assetid={this.id}/>
                     </div>
                     <a href={this.state.asset.file}><ButtonMain title="Download"></ButtonMain></a>
                 </div>

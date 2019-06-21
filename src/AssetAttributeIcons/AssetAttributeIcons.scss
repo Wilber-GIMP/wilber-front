@@ -10,8 +10,25 @@
     display: inline;
     text-color:  #9c9c9c;
     font-size: 1.2em;
-    &:first-child i, &:first-child span{
+    & i, & span{
       color: white;
     }
+    &:first-child{
+      left: 0;
+      position: absolute;
+      top: 1rem;
+      width: 70px;
+      background-color: #0000009e;
+      height: 70px;
+    }
   }
+}
+.likebtn{
+  background-color: transparent;
+  background-color: Transparent;
+  background-repeat:no-repeat;
+  border: none;
+  cursor:pointer;
+  overflow: hidden;
+  outline:none;
 }
