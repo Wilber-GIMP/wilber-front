@@ -1,0 +1,22 @@
+.LoginPage{
+    .LoginCard{
+        background: #474A59;
+        box-shadow: 0px 0px 40px 16px rgba(0,0,0,0.22);
+        color: #F1F1F2;
+        position: relative;
+        width: 50%;
+        min-height: 300px;
+        padding: 7%;
+    }
+    form{
+        display: flex;
+        flex-direction: column;
+        align-content: center;
+        justify-content: center;
+        input{
+            background-color:none;
+            border:none;
+            outline:none;
+        }
+    }
+}

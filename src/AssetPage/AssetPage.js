@@ -33,7 +33,7 @@ class AssetPage extends Component{
                 <div className="col-6">
                     <img className="asset-img"src={this.state.asset.image} alt=""/>
                     <div className="asset-att">
-                        <span>{"Made by: " + this.state.owner.first_name + " " + this.state.owner.last_name}</span>
+                        <span className="owner-name">{"Made by: " + this.state.owner.first_name + " " + this.state.owner.last_name}</span>
                         <AssetAttributeIcons nlikes={this.state.nlikes} ndownloads={this.state.ndownloads} assetid={this.id}/>
                     </div>
                     <a href={this.state.asset.file}><ButtonMain title="Download"></ButtonMain></a>

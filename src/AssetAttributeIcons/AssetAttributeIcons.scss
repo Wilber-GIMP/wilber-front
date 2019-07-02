@@ -4,18 +4,17 @@
   margin-left: 7px;
 }
 .item-atributes span{
-  margin-left: 2px;
+  margin-left: 7px;
 }
 
 .item-atributes {
   .atribute{
     display: inline;
-    text-color:  #9c9c9c;
     font-size: 1.2em;
-    & i, & span{
+    i, span{
       color: white;
     }
-    &:first-child{
+    &.likes{
       left: 0;
       position: absolute;
       top: 1rem;
@@ -24,15 +23,47 @@
       height: 70px;
       display: flex;
       align-items: center;
+
+  .likebtn{
+    background-color: transparent;
+    background-color: Transparent;
+    background-repeat:no-repeat;
+    border: none;
+    cursor:pointer;
+    overflow: hidden;
+    outline:none;
+    .icons{
+      position: relative;
+      width: 20px;
+      height: 30px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      i{
+        position: absolute;
+      }
+      .filled{
+        opacity: 0;
+        color: magenta;
+      }
+    }
+    &.liked{
+      .stroke{
+        transition: opacity 0.5s;
+        opacity: 0;
+      }
+      .filled{
+        transition: opacity 0.5s;
+        opacity: 1;
+      }
     }
   }
-}
-.likebtn{
-  background-color: transparent;
-  background-color: Transparent;
-  background-repeat:no-repeat;
-  border: none;
-  cursor:pointer;
-  overflow: hidden;
-  outline:none;
+      }
+    }
+    &.downs{
+      i, span{
+        font-weight: 200;
+        line-height: 1.8;
+      }
+    }
 }

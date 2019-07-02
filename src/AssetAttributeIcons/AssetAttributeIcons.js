@@ -11,28 +11,40 @@ class AssetAttributeIcons extends Component{
         this.state = {
             nlikes: props.nlikes,
             ndownloads: props.ndownloads,
+            liked: false
         }
     }
 
     likeit(){
-        axios.get(`/api/asset/${this.assetid}/like`)
-            .then((response) => {
-               this.setState(
-                  { nlikes: this.state.nlikes +1 }
-               ) 
-               console.log(response);
-            });
+        if(!this.state.liked){
+            this.setState({ 
+                nlikes: this.state.nlikes +1 ,
+                liked: true
+                });
+            axios.get(`/api/asset/${this.assetid}/like`)
+                .then((response) => {
+                   this.setState(
+                      { nlikes: this.state.nlikes +1 }
+                   ) 
+                   console.log(response);
+                });
+        }
     }
     render(){
         return(
             <div className="item-atributes">
-                <div className='atribute'>
-                    <button onClick={this.likeit} className="likebtn"><i className="far fa-heart"></i></button>
+                <div className='atribute likes'>
+                    <button onClick={this.likeit} className={"likebtn " + (this.state.liked? 'liked' : '')}>
+                        <div className="icons">
+                            <i className="far fa-heart stroke"></i>
+                            <i className="fas fa-heart filled"></i>
+                        </div>
+                    </button>
                     <span>{this.state.nlikes}</span>
                 </div>
-                <div className='atribute'>
+                <div className='atribute downs'>
                     <i className="far fa-arrow-alt-circle-down"></i>
-                    <span>{this.state.nlikes}</span>
+                    <span>{this.state.ndownloads}</span>
                 </div>
             </div>
         );
