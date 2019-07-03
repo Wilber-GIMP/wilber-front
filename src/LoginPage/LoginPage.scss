@@ -1,4 +1,9 @@
+@import '../styles/variables';
+
 .LoginPage{
+    display: flex;
+    justify-content: center;
+    padding-top: 10%;
     .LoginCard{
         background: #474A59;
         box-shadow: 0px 0px 40px 16px rgba(0,0,0,0.22);
@@ -7,16 +12,37 @@
         width: 50%;
         min-height: 300px;
         padding: 7%;
+        h3{
+            margin: 0;
+            text-align: center;
+            color: $purple;
+        }
     }
     form{
         display: flex;
         flex-direction: column;
         align-content: center;
         justify-content: center;
-        input{
-            background-color:none;
+        label{
+            margin-top: 1rem;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+        input, 
+        input:-webkit-autofill
+        {
+            background-color:transparent;
+            background: none;
             border:none;
             outline:none;
+            border-bottom: 2px solid whitesmoke;
+            &:focus{
+                border-bottom: 2px solid $purple;
+            }
+        }
+        .btn-main{
+            margin-top: 3em;
+            padding: 1rem 4rem;
         }
     }
 }

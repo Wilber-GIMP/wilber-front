@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import axios from "axios";
 import AssetAttributeIcons from "../AssetAttributeIcons/AssetAttributeIcons";
 import "./AssetPage.scss"
-import ButtonMain from "../ButtonMain/ButtonMain";
 
 class AssetPage extends Component{
     constructor(props){
@@ -36,7 +35,7 @@ class AssetPage extends Component{
                         <span className="owner-name">{"Made by: " + this.state.owner.first_name + " " + this.state.owner.last_name}</span>
                         <AssetAttributeIcons nlikes={this.state.nlikes} ndownloads={this.state.ndownloads} assetid={this.id}/>
                     </div>
-                    <a href={this.state.asset.file}><ButtonMain title="Download"></ButtonMain></a>
+                    <a href={this.state.asset.file}><button className='btn-main'>Download</button></a>
                 </div>
                 <div className="col-6">
                     <h2 className="asset-name">{this.state.asset.name}</h2>

@@ -1,0 +1,28 @@
+  .btn-main{
+    text-align: center;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: bold;
+    border: 3px solid #fff;
+    background: transparent;
+    position: relative;
+    color: #fff;
+    transition: all 0.3s ease 0s;
+  }
+  .btn-main:hover,
+  .btn-main:focus {
+    color: black;
+    background-color: transparent;
+  }
+  .btn-main:after{
+    content: "";
+    position: absolute;
+    transition: all 0.3s ease 0s;
+    z-index: -1;
+    background: white;
+    top:0; bottom: 0; left: 0; right: 100%;
+  }
+  .btn-main:hover:after, .btn:focus:after {
+    right:0;
+  }

@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import {Link} from "react-router-dom";
-import ButtonMain from "../ButtonMain/ButtonMain";
 
 class AssetThumb extends Component{
    render() {
@@ -12,7 +11,7 @@ class AssetThumb extends Component{
                        <figcaption>
                            <div className="asset-thumb-info">
                                <h2>{this.props.data.name}</h2>
-                               <ButtonMain title="View"/>
+                               <button className="btn-main">View</button>
                            </div>
                        </figcaption>
                    </figure>
