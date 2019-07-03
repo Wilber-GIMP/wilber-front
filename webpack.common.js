@@ -19,7 +19,7 @@ module.exports = {
                 use: [{ loader: 'babel-loader'}],
             },
             {
-                test: /\.s(a|c)ss$/,
+                test: /\.s?(a|c)ss$/,
                 use: [{
                     loader: 'style-loader'
                 }, {
