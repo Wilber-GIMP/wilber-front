@@ -13,11 +13,16 @@ export class LoginPage extends Component{
     }
 
     handleChanges(event){
-        this.setState({username: event.target.value })
+        if(event.target.type == 'text'){
+            this.setState({username: event.target.value })
+        }else{
+            this.setState({pass: event.target.value})
+        }
     };
 
     handleSubmit(event) {
         console.log(this.state.username);
+        console.log(this.state.pass);
         event.preventDefault();
     };
 
@@ -30,7 +35,7 @@ export class LoginPage extends Component{
                         <label>Username</label>
                         <input type='text' value={this.state.username} onChange={this.handleChanges}/>
                         <label>Password</label>
-                        <input type='password' />
+                        <input type='password' value={this.state.pass}  onChange={this.handleChanges}/>
                         <button className="btn-main" type='submit' value='submit'>SUBMIT</button>
                     </form>
                 </div>
