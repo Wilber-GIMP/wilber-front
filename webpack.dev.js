@@ -16,6 +16,10 @@ module.exports = merge(common, {
             '/media': {
                 target: "http://localhost:8000",
                 secure: false,
+            },
+            '/rest-auth': {
+                target: "http://localhost:8000",
+                secure: false,
             }
         }
     }
