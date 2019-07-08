@@ -9,10 +9,13 @@
   "private": false,
   "dependencies": {
     "axios": "^0.18.0",
+    "install": "^0.13.0",
     "normalize.css": "^8.0.1",
+    "npm": "^6.10.0",
     "react": "^16.8.4",
     "react-dom": "^16.8.4",
-    "react-router-dom": "^5.0.0"
+    "react-router-dom": "^5.0.0",
+    "universal-cookie": "^4.0.1"
   },
   "scripts": {
     "build": "webpack --config webpack.prod.js",

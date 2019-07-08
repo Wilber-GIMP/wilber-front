@@ -17,7 +17,7 @@ module.exports = merge(common, {
                 target: "http://localhost:8000",
                 secure: false,
             },
-            '/rest-auth': {
+            '/rest-auth/': {
                 target: "http://localhost:8000",
                 secure: false,
             }

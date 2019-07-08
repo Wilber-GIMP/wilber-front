@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import './LoginPage.scss';
 import axios from "axios";
+import Cookies from 'universal-cookie';
 
 export class LoginPage extends Component{
     constructor(props){
@@ -25,14 +26,14 @@ export class LoginPage extends Component{
     
     handleSubmit = (event) => {
         event.preventDefault();
-        console.log(this.state.username);
-        console.log(this.state.pass);
-        axios.post("/rest-auth/login/?format=json", {
+        axios.post("/rest-auth/login/", {
            'username': this.state.username,
-           'password': this.setState.pass
-
+           'password': this.state.pass
         }).then(response => {
-            console.log(response);
+            if(response.data.key){
+                const cookies = new Cookies();
+                cookies.set('login_token', response.data.key );
+            }
         });
     };
 
