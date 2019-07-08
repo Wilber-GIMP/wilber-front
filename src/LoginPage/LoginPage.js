@@ -7,7 +7,7 @@ export class LoginPage extends Component{
         super(props);
         this.state ={
             username : "",
-            pass : ""
+            pass : "",
         }
     }
 
@@ -20,7 +20,7 @@ export class LoginPage extends Component{
     };
     
     validateForm = () => {
-        return this.state.email.length > 0 && this.state.password.length > 0;
+        return this.state.username.length > 0 && this.state.pass.length > 0;
     }
     
     handleSubmit = (event) => {
@@ -46,7 +46,10 @@ export class LoginPage extends Component{
                         <input type='text' value={this.state.username} onChange={this.handleChanges}/>
                         <label>Password</label>
                         <input type='password' value={this.state.pass}  onChange={this.handleChanges}/>
-                        <button className="btn-main" type='submit' value='submit' onClick={this.handleSubmit}>SUBMIT</button>
+                        <button className="btn-main" 
+                            type='submit' value='submit' 
+                            onClick={this.handleSubmit}
+                            disabled={!this.validateForm()}>SUBMIT</button>
                     </form>
                 </div>
             </div>

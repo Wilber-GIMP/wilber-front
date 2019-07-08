@@ -14,6 +14,7 @@
   .btn-main:focus {
     color: black;
     background-color: transparent;
+    z-index: 1;
   }
   .btn-main:after{
     content: "";
@@ -23,6 +24,6 @@
     background: white;
     top:0; bottom: 0; left: 0; right: 100%;
   }
-  .btn-main:hover:after, .btn:focus:after {
+  .btn-main:hover:after, .btn-main:focus:after {
     right:0;
   }

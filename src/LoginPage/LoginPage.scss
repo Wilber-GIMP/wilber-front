@@ -43,6 +43,12 @@
         .btn-main{
             margin-top: 3em;
             padding: 1rem 4rem;
+            position: relative; 
+            &:disabled{
+                border: none;
+                color: gray;
+                cursor: not-allowed;
+            }
         }
     }
 }
