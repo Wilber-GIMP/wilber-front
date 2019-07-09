@@ -6,13 +6,15 @@ import AssetThumb from "../AssetThumb/AssetThumb";
 import ApiService from "../providers/ApiService";
 import "./ImagesGrid.scss";
 import axios from "axios";
+import ErrorHandler from '../ErrorHandler/ErrorHandler';
 
 
 class ImagesGrid extends Component{
     constructor(){
         super();
         this.state = {
-            assetsList: []
+            assetsList: [],
+            error: ''
         }
     }
 
@@ -22,12 +24,24 @@ class ImagesGrid extends Component{
                 this.setState({
                     assetsList: response.data.results                  
                 });
+            })
+            .catch((error) => {
+                this.setState({
+                    error: "We’re unable to process your request at this time. Please try reload the page."
+                })   
             });
+
     }
 
     render() {
-        return(
-            <div>
+        if(this.state.error){
+            return(
+                <h2>{this.state.error}</h2>
+            );
+        }
+        else{
+            return(
+                <div>
                 <section className="grid">
                     <div className="row">
                         { this.state.assetsList.map((asset)=> {
@@ -39,7 +53,8 @@ class ImagesGrid extends Component{
                     </div>
                 </section>
             </div>
-        );
+            );
+        }
     }
 }
 
