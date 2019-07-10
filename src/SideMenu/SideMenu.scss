@@ -4,9 +4,12 @@
     position: fixed;
 	top: 0;
 	right: 0;
-	width: 20%;
+	width: 0;
     height: 100vh;
-    background-color: $semiblack;
+    z-index: 1;
+    background-color: rgba(0,0,0,0);
+    -webkit-transition: width 0.3s, background-color 0.3s;
+    transition: width 0.3s, background-color 0.3s;
     .bt-menu-trigger {
         position: fixed;
         top: 15px;
@@ -52,7 +55,56 @@
                 transform: translateY(250%);
             }
         }
-        &.bt-open span{
+    }
+    ul{
+        position: fixed;
+        top: 75px;
+        right: 0;
+        margin: 0;
+        padding: 0;
+        width: 20%  ;
+        list-style: none;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.37s;
+        li, li a{
+            display: block;
+	        width: 100%;
+            text-align: center;
+            font-size: 1.7rem;
+            text-decoration: none;
+        }
+        li{
+            padding: 20px 0;
+            a #getin{
+                color: $purple;
+            }
+            i{
+                margin-top: 20px;
+            }
+            &:hover:not(.active) a,&:hover i{
+                color: $purple;
+            }
+            &.active{
+                background-color: $dark-night;
+            }
+        }
+        .avatar{
+            border: 3px solid;
+            border-radius: 50%;
+            margin: 0 auto 10px;
+            width: 70px;
+            height: 70px;
+        }
+    }
+    &.bt-open {
+        width: 20%;
+	    background-color: $semiblack;
+        ul{
+            opacity: 1;
+            visibility: visible;
+        }
+        .bt-menu-trigger span{
             background: transparent;
             &::before{
                 -webkit-transform: translateY(0) rotate(45deg);

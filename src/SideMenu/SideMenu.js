@@ -2,10 +2,12 @@ import React, {Component} from 'react';
 import './SideMenu.scss'
 
 export class SideMenu extends Component{
+    filtersList = ['All Assets','Bruches', 'Patterns', 'Colors' ];
     constructor(props){
         super(props);
         this.state = {
-            isOpen : false
+            isOpen : false,
+            activeIndex : 0
         }
     }
 
@@ -14,16 +16,35 @@ export class SideMenu extends Component{
             isOpen: !this.state.isOpen
         })
     }
+    handleClick = (index) =>{
+        this.setState({
+            activeIndex: index
+        })
+    }
 
     render(){
         return(
             <div>
-            <nav id="side-menu" className="side-menu">
-                <a href="#" className={"bt-menu-trigger " + (this.state.isOpen? 'bt-open' : '')}  onClick={this.toggleMenu}><span>Menu</span></a>
+            <div className='menu-overlay'></div>
+            <nav id="side-menu" className={"side-menu " + (this.state.isOpen? 'bt-open' : '')}>
+                <a href="#" className="bt-menu-trigger"  onClick={this.toggleMenu}><span>Menu</span></a>
                 <ul>
-                    <li><a href="#">Zoom</a></li>
-                    <li><a href="#">Refresh</a></li>
-                    <li><a href="#">Lock</a></li>
+                    <li>
+                        <a  href="#">
+                            <div className="avatar"><i className="fas fa-arrow-right"></i>
+                            </div>
+                            <span id='getin'>Get In</span>
+                        </a>
+                    </li>
+                    {
+                        this.filtersList.map((filter, index) => {
+                            const className = this.state.activeIndex === index ? 'active' : '';
+                            return(                            
+                                 <li className={className} key={index} onClick={() => this.handleClick(index)}><a href="#">{filter}</a></li>
+                            )
+                        })
+                    }
+
                 </ul>
              </nav>
             </div>
