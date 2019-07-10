@@ -1,8 +1,9 @@
 import React, {Component} from 'react';
-import './SideMenu.scss'
+import './SideMenu.scss';
+
 
 export class SideMenu extends Component{
-    filtersList = ['All Assets','Bruches', 'Patterns', 'Colors' ];
+    filtersList = ['All Assets','Brushes', 'Patterns', 'Colors' ];
     constructor(props){
         super(props);
         this.state = {
@@ -30,10 +31,10 @@ export class SideMenu extends Component{
                 <a href="#" className="bt-menu-trigger"  onClick={this.toggleMenu}><span>Menu</span></a>
                 <ul>
                     <li>
-                        <a  href="#">
-                            <div className="avatar"><i className="fas fa-arrow-right"></i>
-                            </div>
-                            <span id='getin'>Get In</span>
+                        <a  href="/login">
+                                <div className="avatar"><i className="fas fa-arrow-up"></i>
+                                </div>
+                                <span id='getin'>Get In</span>
                         </a>
                     </li>
                     {
