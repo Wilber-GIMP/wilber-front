@@ -9,10 +9,14 @@ export class LoginPage extends Component{
         this.state ={
             username : "",
             pass : "",
+            error: false
         }
     }
 
     handleChanges = (event) => {
+        this.setState({
+            error: false
+        });
         if(event.target.type == 'text'){
             this.setState({username: event.target.value })
         }else{
@@ -34,6 +38,11 @@ export class LoginPage extends Component{
                 const cookies = new Cookies();
                 cookies.set('login_token', response.data.key );
             }
+        })
+        .catch(erro => {
+            this.setState({
+                error: true
+            })
         });
     };
 
@@ -47,6 +56,7 @@ export class LoginPage extends Component{
                         <input type='text' value={this.state.username} onChange={this.handleChanges}/>
                         <label>Password</label>
                         <input type='password' value={this.state.pass}  onChange={this.handleChanges}/>
+                        <span className={this.state.error? 'errormsg' : 'noerror'}>User or Password wrong</span>
                         <button className="btn-main" 
                             type='submit' value='submit' 
                             onClick={this.handleSubmit}
