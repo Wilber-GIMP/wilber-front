@@ -26,7 +26,7 @@ export class SideMenu extends Component{
     render(){
         return(
             <div>
-            <div className='menu-overlay'></div>
+            <div className={'menu-overlay ' + (this.state.isOpen? 'overlay-open' : '')}  onClick={this.toggleMenu}></div>
             <nav id="side-menu" className={"side-menu " + (this.state.isOpen? 'bt-open' : '')}>
                 <a href="#" className="bt-menu-trigger"  onClick={this.toggleMenu}><span>Menu</span></a>
                 <ul>

@@ -6,7 +6,7 @@
 	right: 0;
 	width: 0;
     height: 100vh;
-    z-index: 1;
+    z-index: 9999;
     background-color: rgba(0,0,0,0);
     -webkit-transition: width 0.3s, background-color 0.3s;
     transition: width 0.3s, background-color 0.3s;
@@ -116,4 +116,12 @@
             }
         }
     }
+}
+.overlay-open{
+    height: 100%;
+    width: 80%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 9999;
 }
