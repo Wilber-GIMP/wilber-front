@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import './LoginPage.scss';
 import axios from "axios";
 import Cookies from 'universal-cookie';
+import {Redirect} from 'react-router-dom';
 
 export class LoginPage extends Component{
     constructor(props){
@@ -11,6 +12,7 @@ export class LoginPage extends Component{
             pass : "",
             error: false,
             isRegister: 0,
+            toHome: false
         }
     }
 
@@ -40,6 +42,9 @@ export class LoginPage extends Component{
                 const cookies = new Cookies();
                 cookies.set('login_token', response.data.key );
             }
+            this.setState({
+                toHome: true
+            })
         })
         .catch(erro => {
             console.log(erro);
@@ -54,6 +59,9 @@ export class LoginPage extends Component{
         })
     }
     render(){
+        if(this.state.toHome){
+            return <Redirect to='/'/>
+        }
         return(
             <div className="LoginPage">
                 <div className="LoginCard">
@@ -66,7 +74,7 @@ export class LoginPage extends Component{
                             disabled={this.state.isRegister}>Register</button>
                     </div>
                     <form onSubmit={this.handleSubmit}>
-                        <label>Username</label>
+                        <label>Email</label>
                         <input type='text' value={this.state.username} onChange={this.handleChanges}/>
                         <label>Password</label>
                         <input type='password' value={this.state.pass}  onChange={this.handleChanges}/>
