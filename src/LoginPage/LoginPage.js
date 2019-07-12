@@ -9,7 +9,8 @@ export class LoginPage extends Component{
         this.state ={
             username : "",
             pass : "",
-            error: false
+            error: false,
+            isRegister: 0,
         }
     }
 
@@ -34,29 +35,42 @@ export class LoginPage extends Component{
            'username': this.state.username,
            'password': this.state.pass
         }).then(response => {
+            console.log(response);
             if(response.data.key){
                 const cookies = new Cookies();
                 cookies.set('login_token', response.data.key );
             }
         })
         .catch(erro => {
+            console.log(erro);
             this.setState({
                 error: true
             })
         });
     };
-
+    changeLogin = () => {
+        this.setState({
+            isRegister: !this.state.isRegister
+        })
+    }
     render(){
         return(
             <div className="LoginPage">
                 <div className="LoginCard">
-                    <h3>Login</h3>
+                    <div id='logintype'>
+                        <button className={'log-btn' + (!this.state.isRegister ? ' active' : '')} 
+                            onClick={this.changeLogin}
+                            disabled={!this.state.isRegister}>Login</button>
+                        <button className={'log-btn' + (this.state.isRegister ? ' active' : '')} 
+                            onClick={this.changeLogin}
+                            disabled={this.state.isRegister}>Register</button>
+                    </div>
                     <form onSubmit={this.handleSubmit}>
                         <label>Username</label>
                         <input type='text' value={this.state.username} onChange={this.handleChanges}/>
                         <label>Password</label>
                         <input type='password' value={this.state.pass}  onChange={this.handleChanges}/>
-                        <span className={this.state.error? 'errormsg' : 'noerror'}>User or Password wrong</span>
+                        <span className={this.state.error? 'errormsg' : 'noerror'}>User or Password Wrong</span>
                         <button className="btn-main" 
                             type='submit' value='submit' 
                             onClick={this.handleSubmit}

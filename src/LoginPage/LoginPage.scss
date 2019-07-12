@@ -12,10 +12,29 @@
         width: 50%;
         min-height: 300px;
         padding: 7%;
-        h3{
-            margin: 0;
-            text-align: center;
-            color: $purple;
+        #logintype{
+            display: flex;
+            justify-content: space-around;
+            font-size: 1.7rem;
+            margin-bottom: 1em;
+            .log-btn{
+                padding: 0.2rem 1em;
+                color: $purple;
+                cursor: pointer;
+                border: solid $purple;
+                background-color: transparent;
+                &.active{
+                    color: white;
+                    padding: 0.2em 1.5em;
+                    background-color: $dark-night;
+                    border: none;
+                    cursor: not-allowed;
+                }
+                &:hover:not(.active){
+                    background: $purple;
+                    color: white;
+                }
+            }
         }
     }
     form{ 

@@ -3,7 +3,7 @@ import './SideMenu.scss';
 
 
 export class SideMenu extends Component{
-    filtersList = ['All Assets','Brushes', 'Patterns', 'Colors' ];
+    filtersList = ['All Assets','Brushes', 'Patterns', 'Colors'];
     constructor(props){
         super(props);
         this.state = {
@@ -41,7 +41,7 @@ export class SideMenu extends Component{
                         this.filtersList.map((filter, index) => {
                             const className = this.state.activeIndex === index ? 'active' : '';
                             return(                            
-                                 <li className={className} key={index} onClick={() => this.handleClick(index)}><a href="#">{filter}</a></li>
+                                 <li className={className} key={index} onClick={() => this.handleClick(index)}><a href="/">{filter}</a></li>
                             )
                         })
                     }
