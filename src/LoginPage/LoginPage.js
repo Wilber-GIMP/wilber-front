@@ -12,7 +12,7 @@ export class LoginPage extends Component{
             username : '',
             pass : '',
             pass2: '',
-            error: false,
+            error: '',
             isRegister: 0,
             toHome: false
         }
@@ -52,12 +52,12 @@ export class LoginPage extends Component{
            'username': this.state.username,
            'password': this.state.pass
         }).then(response => {
-           this.saveCookie(response);
+            this.saveCookie(response);
         })
         .catch(erro => {
             console.log(erro);
             this.setState({
-                error: true
+                error: 'User or Password Wrong'
             })
         });
     };
@@ -69,11 +69,11 @@ export class LoginPage extends Component{
            'password1': this.state.pass,
            'password2': this.state.pass2,
         }).then(response => {
-            console.log(response);
+            this.saveCookie(response);
         }).catch(erro => {
-            console.log(erro);
+            console.log(erro.response);
             this.setState({
-                error: true
+                error: 'Unable to Register, check your data and try again.'
             })
         });
     }
@@ -99,7 +99,7 @@ export class LoginPage extends Component{
                 <input name='password1' type='password' value={this.state.pass}  onChange={this.handleChanges}/>
                 <label>Repeat Password</label>
                 <input name='password2' type='password' value={this.state.pass2}  onChange={this.handleChanges}/>
-                <span className={this.state.error? 'errormsg' : 'noerror'}>Invalid Credentials</span>
+                <span className={this.state.error? 'errormsg' : 'noerror'}>{this.state.error}</span>
                 <button className="btn-main" 
                     type='submit' value='submit' 
                     onClick={this.submitRegister}
@@ -112,7 +112,7 @@ export class LoginPage extends Component{
                 <input name='username' type='text' value={this.state.username} onChange={this.handleChanges}/>
                 <label>Password</label>
                 <input name='password1' type='password' value={this.state.pass}  onChange={this.handleChanges}/>
-                <span className={this.state.error? 'errormsg' : 'noerror'}>User or Password Wrong</span>
+                <span className={this.state.error? 'errormsg' : 'noerror'}>{this.state.error}</span>
                 <button className="btn-main" 
                     type='submit' value='submit' 
                     onClick={this.submitLogin}
