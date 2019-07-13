@@ -9,45 +9,50 @@ export class LoginPage extends Component{
         super(props);
         this.state ={
             email: '',
-            username : "",
-            pass : "",
+            username : '',
+            pass : '',
+            pass2: '',
             error: false,
             isRegister: 0,
             toHome: false
         }
     }
-    //Same handle for Login and Register
+    //Same handle for Login and Registration
     handleChanges = (event) => {
         this.setState({
             error: false
         });
-        if(event.target.type == 'text'){
-            this.setState({username: event.target.value })
-        }else if(event.target.type == 'email'){
-            this.setState({email: event.target.value})
-        }else{
-            this.setState({pass: event.target.value})
+        if(event.target.name == 'username'){
+            this.setState({username: event.target.value });
+        }else if(event.target.name  == 'email'){
+            this.setState({email: event.target.value});
+        }else if(event.target.name == 'password1'){
+            this.setState({pass: event.target.value});
+        }else if(event.target.name == 'password2'){
+            this.setState({pass2: event.target.value});
         }
     };
     
     validateForm = () => {
         return this.state.username.length > 0 && this.state.pass.length > 0;
     }
-    
+    saveCookie = (response) =>{
+        if(response.data.key){
+            const cookies = new Cookies();
+            cookies.set('login_token', response.data.key );
+        }
+        this.setState({
+            toHome: true
+        })
+    }
+
     submitLogin = (event) => {
         event.preventDefault();
         axios.post("/rest-auth/login/", {
            'username': this.state.username,
            'password': this.state.pass
         }).then(response => {
-            console.log(response);
-            if(response.data.key){
-                const cookies = new Cookies();
-                cookies.set('login_token', response.data.key );
-            }
-            this.setState({
-                toHome: true
-            })
+           this.saveCookie(response);
         })
         .catch(erro => {
             console.log(erro);
@@ -56,11 +61,28 @@ export class LoginPage extends Component{
             })
         });
     };
+    submitRegister = (event) =>{
+        event.preventDefault();
+        axios.post("/rest-auth/registration/", {
+           'email': this.state.email, 
+           'username': this.state.username,
+           'password1': this.state.pass,
+           'password2': this.state.pass2,
+        }).then(response => {
+            console.log(response);
+        }).catch(erro => {
+            console.log(erro);
+            this.setState({
+                error: true
+            })
+        });
+    }
     changeLogin = () => {
         this.setState({
             isRegister: !this.state.isRegister
         })
     }
+
     render(){
         let form;
         if(this.state.toHome){
@@ -68,25 +90,28 @@ export class LoginPage extends Component{
         }
         if(this.state.isRegister) {
             form =  
-            <form onSubmit={this.submitLogin}>
+            <form onSubmit={this.submitRegister}>
                 <label>Email</label>
-                <input type='email' value={this.state.email} onChange={this.handleChanges}/>
+                <input name='email' type='email' value={this.state.email} onChange={this.handleChanges}/>
                 <label>Username</label>
-                <input type='text' value={this.state.username} onChange={this.handleChanges}/>
+                <input name='username' type='text' value={this.state.username} onChange={this.handleChanges}/>
                 <label>Password</label>
-                <input type='password' value={this.state.pass}  onChange={this.handleChanges}/>
+                <input name='password1' type='password' value={this.state.pass}  onChange={this.handleChanges}/>
+                <label>Repeat Password</label>
+                <input name='password2' type='password' value={this.state.pass2}  onChange={this.handleChanges}/>
+                <span className={this.state.error? 'errormsg' : 'noerror'}>Invalid Credentials</span>
                 <button className="btn-main" 
                     type='submit' value='submit' 
-                    onClick={this.submitLogin}
+                    onClick={this.submitRegister}
                     disabled={!this.validateForm()}>SUBMIT</button>
             </form>
         }else{
             form =  
             <form onSubmit={this.submitLogin}>
-                <label>Email or Username</label>
-                <input type='text' value={this.state.username} onChange={this.handleChanges}/>
+                <label>Username</label>
+                <input name='username' type='text' value={this.state.username} onChange={this.handleChanges}/>
                 <label>Password</label>
-                <input type='password' value={this.state.pass}  onChange={this.handleChanges}/>
+                <input name='password1' type='password' value={this.state.pass}  onChange={this.handleChanges}/>
                 <span className={this.state.error? 'errormsg' : 'noerror'}>User or Password Wrong</span>
                 <button className="btn-main" 
                     type='submit' value='submit' 
