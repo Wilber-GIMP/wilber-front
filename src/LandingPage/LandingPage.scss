@@ -1,0 +1,12 @@
+.landinng-content{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    #logo-landing{
+        max-width: 30%;
+        margin: 7rem auto 0; 
+     }
+    h1{
+        text-align: center;
+    }
+}

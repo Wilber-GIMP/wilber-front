@@ -1,4 +1,5 @@
 import React from 'react';
+import './LandingPage.scss'
 import logo from './logo.png';
 
 function Landing(props){
