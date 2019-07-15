@@ -35,7 +35,8 @@ export class LoginPage extends Component{
     
     validateForm = () => {
         return this.state.username.length > 0 && this.state.pass.length > 0;
-    }
+    };
+
     saveCookie = (response) =>{
         if(response.data.key){
             const cookies = new Cookies();
@@ -44,7 +45,7 @@ export class LoginPage extends Component{
         this.setState({
             toHome: true
         })
-    }
+    };
 
     submitLogin = (event) => {
         event.preventDefault();
@@ -61,6 +62,7 @@ export class LoginPage extends Component{
             })
         });
     };
+
     submitRegister = (event) =>{
         event.preventDefault();
         axios.post("/rest-auth/registration/", {
@@ -77,6 +79,7 @@ export class LoginPage extends Component{
             })
         });
     }
+
     changeLogin = () => {
         this.setState({
             isRegister: !this.state.isRegister

@@ -16,6 +16,7 @@ class AssetPage extends Component{
         }
     }
     componentDidMount() {
+        console.log(token);
         axios.get("/api/asset/"+ this.id + "/")
             .then((response) => {
                 this.setState({
