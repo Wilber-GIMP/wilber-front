@@ -14,7 +14,7 @@ class Home extends Component{
                 <Router>
                     <Route exact path="/" component={Landing}/>
                     <Route path="/assets/" component={ImagesGrid}/>
-                    <Route path="/asset/:id" component={AssetPage}/>
+                    <Route path="/asset/:id/" component={AssetPage}/>
                     <Route path="/login" component={LoginPage}/>
                 </Router>
             </div>
