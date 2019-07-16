@@ -12,5 +12,15 @@
     }
     .landing-options{
         display: flex;
+        div{
+            padding: 30px;
+        }
+        p{
+            font-size: 1.7rem;
+            font-weight:400;
+        }
+    }
+    .btn-main{
+        padding: 1em 3em;
     }
 }

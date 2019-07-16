@@ -7,15 +7,17 @@ function Landing(props){
         <div className='landing-content'>
             <img src={logo} id='logo-landing' ></img>
             <h1>Wilber Social</h1>
-            <h3>Share and Download Grafic Assets</h3>
-            <h5>You can can find GIMP Bruches, Color Palletsand many more. </h5>
+            <h3>Share and Download Grafic Assets<br></br>
+            You can can find GIMP Bruches, Color Pallets and many more. </h3>
             <div className='landing-options'>
                 <div className='download-section'>
-                    Download the Plugin for GIMP to upload or download the Assets
+                    <p>
+                        Download the Plugin for GIMP to upload or download the Assets
+                    </p>
                     <button className='btn-main'>DOWNLOAD PLUGIN</button>
                 </div>
                 <div className='social-section'>
-                    Access our site to download the Availables Assets
+                    <p>Access our site to download the availables Assets</p>
                     <button className='btn-main'>ACCESS SITE</button>
                 </div>
             </div>
