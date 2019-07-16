@@ -18,7 +18,9 @@ function Landing(props){
                 </div>
                 <div className='social-section'>
                     <p>Access our site to download the availables Assets</p>
+                    <a href='/assets/'>
                     <button className='btn-main'>ACCESS SITE</button>
+                    </a>
                 </div>
             </div>
         </div>
