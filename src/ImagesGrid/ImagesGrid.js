@@ -51,6 +51,10 @@ class ImagesGrid extends Component{
                         })
                         }
                     </div>
+                    <div className="row pagination">
+                        <button className='btn-main'> <i className='left'></i>Prev  </button>
+                        <button className='btn-main'> Next<i className='right'></i> </button> 
+                    </div>
                 </section>
             </div>
             );
