@@ -13,23 +13,59 @@ class ImagesGrid extends Component{
         super();
         this.state = {
             assetsList: [],
+            actualPage : 0,
+            prevPage : false,
+            nextPage : false,
             error: ''
         }
     }
+    nextPage = () => {
+        this.getAssets(this.state.actualPage + 9);
+    }
 
-    componentDidMount(){
-        axios.get("/api/asset/")
-            .then((response) => {
-                this.setState({
-                    assetsList: response.data.results                  
-                });
-            })
-            .catch((error) => {
-                this.setState({
-                    error: "We’re unable to process your request at this time. Please try to reload the page."
-                })   
+    prevPage = () => {
+        this.getAssets(this.state.actualPage - 9);       
+    }
+
+    //Limit = 9, PageStart
+    getAssets = (startPage) =>{
+        axios.get("/api/asset/?limit=9&offset=" + startPage )
+        .then((response) => {
+            this.setState({
+                assetsList: response.data.results, 
+                actualPage: startPage
             });
-
+            console.log(response.data);
+            if(response.data.next){
+                this.setState({
+                    nextPage: true 
+                });
+            }
+            else{
+                this.setState({
+                    nextPage: false 
+                });
+            }
+            if(response.data.previous){
+                this.setState({
+                    prevPage: true 
+                });
+            }
+            else{
+                this.setState({
+                    prevPage: false 
+                });
+            }
+        })
+        .catch((error) => {
+            this.setState({
+                error: "We’re unable to process your request at this time. Please try to reload the page."
+            })   
+        });
+    }
+    
+    componentDidMount(){
+        this.getAssets(0);
     }
 
     render() {
@@ -52,8 +88,8 @@ class ImagesGrid extends Component{
                         }
                     </div>
                     <div className="row pagination">
-                        <button className='btn-main'> <i className='left'></i>Prev  </button>
-                        <button className='btn-main'> Next<i className='right'></i> </button> 
+                        <button className='btn-main' onClick={this.prevPage} disabled={!this.state.prevPage}> <i className='left'></i>Prev  </button>
+                        <button className='btn-main' onClick={this.nextPage} disabled={!this.state.nextPage}> Next<i className='right'></i> </button> 
                     </div>
                 </section>
             </div>
