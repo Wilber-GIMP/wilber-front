@@ -6,8 +6,7 @@ import AssetThumb from "../AssetThumb/AssetThumb";
 import ApiService from "../providers/ApiService";
 import "./ImagesGrid.scss";
 import axios from "axios";
-import ErrorHandler from '../ErrorHandler/ErrorHandler';
-
+import HeaderMenu from '../HeaderMenu/HeaderMenu';
 
 class ImagesGrid extends Component{
     constructor(){
@@ -27,7 +26,7 @@ class ImagesGrid extends Component{
             })
             .catch((error) => {
                 this.setState({
-                    error: "We’re unable to process your request at this time. Please try reload the page."
+                    error: "We’re unable to process your request at this time. Please try to reload the page."
                 })   
             });
 
@@ -42,6 +41,7 @@ class ImagesGrid extends Component{
         else{
             return(
                 <div>
+                <HeaderMenu/>
                 <section className="grid">
                     <div className="row">
                         { this.state.assetsList.map((asset)=> {

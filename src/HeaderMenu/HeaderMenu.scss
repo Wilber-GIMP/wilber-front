@@ -1,12 +1,27 @@
-.head .types-menu{
-  padding: 1em 0;
-  border-bottom: 0.15em solid;
-}
-.head .type-buttons{
-  padding: 1em 4em;
-  margin-left: 1.5em;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  border: 3px solid #fff;
-  background: transparent;
+@import '../styles/variables';
+
+.head{
+  margin-top: 20px;
+    display: flex;
+    align-items: center;  
+    .logo-head{
+      max-width: 70px;
+      max-height: 70px;
+    }
+    form{
+      width: 90%;
+    }
+    .search-in{
+          background-color:transparent;
+          background: none;
+          border:none;
+          outline:none;
+          border-bottom: 2px solid whitesmoke;
+          width: 100%;
+          font-size: 2rem;
+          &:focus{
+              border-bottom: 2px solid $purple;
+          }
+    }
+    
 }
