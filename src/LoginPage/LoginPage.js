@@ -89,7 +89,7 @@ export class LoginPage extends Component{
     render(){
         let form;
         if(this.state.toHome){
-            return <Redirect to='/'/>
+            return <Redirect to='/assets/'/>
         }
         if(this.state.isRegister) {
             form =  

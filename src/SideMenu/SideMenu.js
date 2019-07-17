@@ -40,7 +40,7 @@ export class SideMenu extends Component{
                 <a href="#" className="bt-menu-trigger"  onClick={this.toggleMenu}><span>Menu</span></a>
                 <ul>
                     <li>
-                        <a  href="/accounts/login/">
+                        <a  href="/login/">
                                 <div className="avatar"><i className="fas fa-arrow-up"></i>
                                 </div>
                                 <span id='getin'>Get In</span>
