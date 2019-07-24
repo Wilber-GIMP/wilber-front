@@ -1,11 +1,10 @@
 import React from 'react';
 import './LandingPage.scss'
-import logo from './logo.png';
 
 function Landing(props){
     return(
         <div className='landing-content'>
-            <img src={require('./logo.png')} id='logo-landing' ></img>
+            <img src={require('./static/images/logo.png')} id='logo-landing' ></img>
             <h1>Wilber Social</h1>
             <h3>Share and Download Graphic Assets<br></br>
             You can can find GIMP Bruches, Color Pallets and many more. </h3>
