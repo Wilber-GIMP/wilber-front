@@ -7,7 +7,7 @@ function Landing(props){
             <img src={require('./static/images/logo.png')} id='logo-landing' ></img>
             <h1>Wilber Social</h1>
             <h3>Share and Download Graphic Assets<br></br>
-            You can can find GIMP Bruches, Color Pallets and many more. </h3>
+            You can find GIMP Bruches, Color Pallets and many more. </h3>
             <div className='landing-options'>
                 <div className='download-section'>
                     <p>

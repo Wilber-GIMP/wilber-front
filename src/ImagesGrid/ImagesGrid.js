@@ -33,7 +33,7 @@ class ImagesGrid extends Component{
         let category = '';
         let query = '';
         if(this.state.category){
-            category = 'category=' + this.state.category  + '&';
+            category = 'category=' + this.state.category.toLowerCase()  + '&';
             console.log(category);
         }
         axios.get("/api/asset/?" + category + 'limit=9&offset=' + startPage)
