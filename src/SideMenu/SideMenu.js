@@ -1,10 +1,11 @@
 import React, {Component} from 'react';
 import './SideMenu.scss';
 import Cookies from 'universal-cookie';
+import {Link} from 'react-router-dom';
 
 
 export class SideMenu extends Component{
-    filtersList = ['All Assets','Brushes', 'Patterns', 'Colors'];
+    filtersList = ['All Assets','Brushes', 'Patterns', 'Palettes'];
     constructor(props){
         super(props);
         this.state = {
@@ -32,6 +33,7 @@ export class SideMenu extends Component{
         }
     }
 
+
     render(){
         return(
             <div>
@@ -50,7 +52,10 @@ export class SideMenu extends Component{
                         this.filtersList.map((filter, index) => {
                             const className = this.state.activeIndex === index ? 'active' : '';
                             return(                            
-                                 <li className={className} key={index} onClick={() => this.handleClick(index)}><a href="/assets/">{filter}</a></li>
+                                 <li className={className} key={index} onClick={() => this.handleClick(index)}>
+                                 <Link to={{pathname : ("/assets/" + filter),  
+                                        key : filter
+                                    }}>{filter}</Link></li>
                             )
                         })
                     }

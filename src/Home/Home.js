@@ -10,10 +10,10 @@ class Home extends Component{
     render() {
         return(
             <div className="container">
-                <SideMenu/>
                 <Router>
+                    <SideMenu/>
                     <Route exact path="/" component={Landing}/>
-                    <Route path="/assets/" component={ImagesGrid}/>
+                    <Route path="/assets/:filter?" component={ImagesGrid}/>
                     <Route path="/asset/:id/" component={AssetPage}/>
                     <Route path="/login" component={LoginPage}/>
                 </Router>

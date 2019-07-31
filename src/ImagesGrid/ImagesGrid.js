@@ -16,7 +16,8 @@ class ImagesGrid extends Component{
             actualPage : 0,
             prevPage : false,
             nextPage : false,
-            error: ''
+            error: '',
+            category: '',
         }
     }
     nextPage = () => {
@@ -29,7 +30,13 @@ class ImagesGrid extends Component{
 
     //Limit = 9, PageStart
     getAssets = (startPage) =>{
-        axios.get("/api/asset/?limit=9&offset=" + startPage )
+        let category = '';
+        let query = '';
+        if(this.state.category){
+            category = 'category=' + this.state.category  + '&';
+            console.log(category);
+        }
+        axios.get("/api/asset/?" + category + 'limit=9&offset=' + startPage)
         .then((response) => {
             this.setState({
                 assetsList: response.data.results, 
@@ -66,6 +73,23 @@ class ImagesGrid extends Component{
     
     componentDidMount(){
         this.getAssets(0);
+    }
+
+    componentWillReceiveProps(newProps){
+        const { filter } = newProps.match.params;
+        if(filter && filter!=='All Assets'){
+            this.setState({
+                category: filter
+            }, () => {
+                this.getAssets(0);
+            });
+        }else{
+            this.setState({
+                category: ''
+            }, () => {
+                this.getAssets(0);
+            });
+        }    
     }
 
     render() {
