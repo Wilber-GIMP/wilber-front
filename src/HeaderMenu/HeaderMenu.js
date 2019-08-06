@@ -6,7 +6,7 @@ class HeaderMenu extends Component {
     render() {
         return (
             <div className="head row">
-               <a href='/assets/'><img className='logo-head' src={'/static/images/logo.png'}></img></a>
+               <a href='/assets/'><img className='logo-head' src={'/static/images/logo_100.png'}></img></a>
                <form>
                     <input type='text' placeholder='Search' className='search-in'></input>
                </form>
