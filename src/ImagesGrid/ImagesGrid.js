@@ -18,6 +18,7 @@ class ImagesGrid extends Component{
             nextPage : false,
             error: '',
             category: '',
+            searchQuery: ''
         }
     }
     nextPage = () => {
@@ -36,7 +37,10 @@ class ImagesGrid extends Component{
             category = 'category=' + this.state.category.toLowerCase()  + '&';
             console.log(category);
         }
-        axios.get("/api/asset/?" + category + 'limit=9&offset=' + startPage)
+        if(this.state.searchQuery){
+            query = 'search=' + this.state.searchQuery + '&';
+        }
+        axios.get("/api/asset/?" + query + category + 'limit=9&offset=' + startPage)
         .then((response) => {
             this.setState({
                 assetsList: response.data.results, 
@@ -91,7 +95,13 @@ class ImagesGrid extends Component{
             });
         }    
     }
-
+    handleSearch = (query) => {
+        this.setState({
+            searchQuery : query
+        }, () =>{
+            this.getAssets(0);
+        }); 
+    }
     render() {
         if(this.state.error){
             return(
@@ -101,7 +111,7 @@ class ImagesGrid extends Component{
         else{
             return(
                 <div>
-                <HeaderMenu/>
+                <HeaderMenu handleSearch={this.handleSearch}/>
                 <section className="grid">
                     <div className="row">
                         { this.state.assetsList.map((asset)=> {
