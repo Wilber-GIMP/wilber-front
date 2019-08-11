@@ -39,13 +39,11 @@
 }
 .grid figcaption h2 {
   margin: 0 0 20px 0;
-  color:  #b08cf9;
+  color: white;
   text-transform: uppercase;
   letter-spacing: 1px;
-  font-weight: 300;
+  font-weight: 600;
   font-size: 130%;
-}
-.grid figcaption h2{
   opacity: 0;
   transform: translateY(-20px);
   transition: opacity 0.3s, transform 0.3s;
