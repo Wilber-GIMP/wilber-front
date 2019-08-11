@@ -22,6 +22,7 @@ class HeaderMenu extends Component {
                <a href='/assets/'><img className='logo-head' src={logo}></img></a>
                <form onSubmit={this.handleSubmit}>
                     <input type='text' value={this.state.searchQuery} onChange={this.handleChange} placeholder='Search' className='search-in'></input>
+                    <button className='btn-input'><i className="fas fa-search"></i>   </button>
                </form>
             </div>
         );

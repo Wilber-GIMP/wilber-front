@@ -35,7 +35,6 @@ class ImagesGrid extends Component{
         let query = '';
         if(this.state.category){
             category = 'category=' + this.state.category.toLowerCase()  + '&';
-            console.log(category);
         }
         if(this.state.searchQuery){
             query = 'search=' + this.state.searchQuery + '&';

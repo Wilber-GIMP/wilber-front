@@ -23,5 +23,11 @@
               border-bottom: 2px solid $purple;
           }
     }
-    
+    .btn-input{
+      color: gray;
+      position: absolute;
+      font-size: 2em;
+      top: 16px;
+      right: 32px;
+    }
 }
