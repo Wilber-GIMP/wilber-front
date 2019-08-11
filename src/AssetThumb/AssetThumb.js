@@ -7,7 +7,7 @@ class AssetThumb extends Component{
            <div className="col-4">
                <Link to={{ pathname: '/asset/'+ this.props.data.id + '/'}} >
                    <figure>
-                       <img src={this.props.data.image} alt=""/>
+                       <img src={this.props.data.image_thumbnail} alt=""/>
                        <figcaption>
                            <div className="asset-thumb-info">
                                <h2>{this.props.data.name}</h2>

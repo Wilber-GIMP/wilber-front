@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './HeaderMenu.scss';
-import logo from './logo.png';
+import logo from './static/images/logo_100.png';
 
 class HeaderMenu extends Component {
     constructor(props){
@@ -19,10 +19,11 @@ class HeaderMenu extends Component {
     render() {
         return (
             <div className="head row">
-               <a href='/assets/'><img className='logo-head' src={logo}></img></a>
+               <a href='/assets/'><img className='logo-head' src={'/static/images/logo_100.png'}></img></a>
                <form onSubmit={this.handleSubmit}>
                     <input type='text' value={this.state.searchQuery} onChange={this.handleChange} placeholder='Search' className='search-in'></input>
                     <button className='btn-input'><i className="fas fa-search"></i>   </button>
+
                </form>
             </div>
         );
