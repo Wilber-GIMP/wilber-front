@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import axios from "axios";
 import AssetAttributeIcons from "../AssetAttributeIcons/AssetAttributeIcons";
 import "./AssetPage.scss"
+import HeaderMenu from '../HeaderMenu/HeaderMenu';
+
 
 class AssetPage extends Component{
     constructor(props){
@@ -28,7 +30,9 @@ class AssetPage extends Component{
     }
     render(){
         return(
-            <div className="row asset-content">
+            <div>
+                <HeaderMenu />
+                <div className="row asset-content">
                 <div className="col-6">
                     <img className="asset-img"src={this.state.asset.image} alt=""/>
                     <div className="asset-att">
@@ -41,6 +45,7 @@ class AssetPage extends Component{
                     <h2 className="asset-name">{this.state.asset.name}</h2>
                     <p className="asset-description">{this.state.asset.description}</p>
                 </div>
+            </div>
             </div>
         );
     }
