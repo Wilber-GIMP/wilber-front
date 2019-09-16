@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 import axios from "axios";
 import AssetAttributeIcons from "../AssetAttributeIcons/AssetAttributeIcons";
-import "./AssetPage.scss"
-import HeaderMenu from '../HeaderMenu/HeaderMenu';
-
+import "./AssetPage.scss";
 
 class AssetPage extends Component{
     constructor(props){
@@ -31,7 +29,6 @@ class AssetPage extends Component{
     render(){
         return(
             <div>
-                <HeaderMenu />
                 <div className="row asset-content">
                 <div className="col-6">
                     <img className="asset-img"src={this.state.asset.image} alt=""/>

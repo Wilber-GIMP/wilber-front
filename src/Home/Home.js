@@ -5,12 +5,14 @@ import AssetPage from '../AssetPage/AssetPage';
 import LoginPage from '../LoginPage/LoginPage';
 import { SideMenu } from '../SideMenu/SideMenu';
 import Landing from '../LandingPage/LandingPage';
+import HeaderMenu from '../HeaderMenu/HeaderMenu';
 
 class Home extends Component{
     render() {
         return(
             <div className="container">
                 <Router>
+                    <HeaderMenu />
                     <SideMenu/>
                     <Route exact path="/" component={Landing}/>
                     <Route path="/assets/:filter?" component={ImagesGrid}/>

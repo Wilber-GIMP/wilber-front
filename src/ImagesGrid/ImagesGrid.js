@@ -35,7 +35,6 @@ class ImagesGrid extends Component{
         let query = '';
         if(this.state.category){
             category = 'category=' + this.state.category.toLowerCase()  + '&';
-            // console.log(category);
         }
         if(this.state.searchQuery){
             query = 'search=' + this.state.searchQuery + '&';
@@ -76,17 +75,17 @@ class ImagesGrid extends Component{
     }
     
     componentDidMount(){
-        // const {search} = this.props.location.state;
-        // if(search){
-        //     console.log("search", search);
-        // }
         this.getAssets(0);
-    
     }
 
-    componentWillReceiveProps(newProps){
-        const { filter } = newProps.match.params;
-        
+    componentWillReceiveProps(newProps){       
+        if(newProps.location.state){
+            const {search} = newProps.location.state;            
+            this.setState({searchQuery : search}, () => {
+                this.getAssets(0);
+            });
+        }
+        const { filter } = newProps.match.params;        
         if(filter && filter!=='All Assets'){
             this.setState({
                 category: filter
@@ -100,16 +99,8 @@ class ImagesGrid extends Component{
                 this.getAssets(0);
             });
         }
-       
     }
     
-    handleSearch = (query) => {
-        this.setState({
-            searchQuery : query
-        }, () =>{
-            this.getAssets(0);
-        }); 
-    }
     render() {
         if(this.state.error){
             return(
@@ -119,7 +110,6 @@ class ImagesGrid extends Component{
         else{
             return(
                 <div>
-                <HeaderMenu />
                 <section className="grid">
                     <div className="row">
                         { this.state.assetsList.map((asset)=> {
