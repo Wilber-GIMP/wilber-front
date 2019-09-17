@@ -17,16 +17,21 @@ class AssetAttributeIcons extends Component{
 
     likeit(){
         if(!this.state.liked){
-            this.setState({ 
-                nlikes: this.state.nlikes +1 ,
-                liked: true
-                });
             axios.get(`/api/asset/${this.assetid}/like`)
                 .then((response) => {
-                   this.setState(
-                      { nlikes: this.state.nlikes +1 }
-                   ) 
-                   console.log(response);
+                   this.setState({ 
+                    nlikes: this.state.nlikes +1 ,
+                    liked: true
+                    });
+                });
+        }
+        else{
+            axios.get(`/api/asset/${this.assetid}/unlike`)
+                .then((response) => {
+                   this.setState({ 
+                    nlikes: this.state.nlikes -1 ,
+                    liked: false
+                    });                    
                 });
         }
     }
@@ -41,10 +46,6 @@ class AssetAttributeIcons extends Component{
                         </div>
                     </button>
                     <span>{this.state.nlikes}</span>
-                </div>
-                <div className='atribute downs'>
-                    <i className="far fa-arrow-alt-circle-down"></i>
-                    <span>{this.state.ndownloads}</span>
                 </div>
             </div>
         );

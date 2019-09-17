@@ -8,6 +8,7 @@
 }
 
 .item-atributes {
+  position: relative;
   .atribute{
     display: inline;
     font-size: 1.2em;
@@ -15,9 +16,9 @@
       color: white;
     }
     &.likes{
-      left: 0;
+      bottom: 0rem;
+      right: -1rem;
       position: absolute;
-      top: 1rem;
       width: 70px;
       background-color: $shadow;
       height: 70px;
