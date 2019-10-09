@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from "axios";
+import {Link} from "react-router-dom";
 import AssetAttributeIcons from "../AssetAttributeIcons/AssetAttributeIcons";
 import "./AssetPage.scss";
 
@@ -18,6 +19,7 @@ class AssetPage extends Component{
     componentDidMount() {
         axios.get("/api/asset/"+ this.id + "/")
             .then((response) => {
+                console.log(response);                
                 this.setState({
                     asset: response.data,
                     owner: response.data.owner,
@@ -33,7 +35,9 @@ class AssetPage extends Component{
                 <div className="col-6">
                     <img className="asset-img"src={this.state.asset.image} alt=""/>
                     <div className="asset-att">
-                        <span className="owner-name">{"Made by: " + this.state.owner.first_name + " " + this.state.owner.last_name}</span>
+                        <Link  to="/profile/">
+                            <span className="owner-name">{"Made by: " + this.state.owner.first_name + " " + this.state.owner.last_name}</span>
+                        </Link>
                         <AssetAttributeIcons nlikes={this.state.nlikes} ndownloads={this.state.ndownloads} assetid={this.id}/>
                     </div>
                     <a href={this.state.asset.file}><button className='btn-main'>Download</button></a>

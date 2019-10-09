@@ -25,7 +25,7 @@ class HeaderMenu extends Component {
             }else{
                 return (
                     <div className="head row">
-                    <a href='/assets/'><img className='logo-head' src={'/static/images/logo_100.png'}></img></a>
+                    <a href='/assets/'><img className='logo-head' src={'static/images/logo_100.png'}></img></a>
                     <form onSubmit={e => this.handleSubmit(e)}>
                             <input type='text' value={this.state.searchQuery} onChange={this.handleChange} placeholder='Search' className='search-in'></input>
                             <Link to={{pathname:'/assets/', state:{search: this.state.searchQuery}}} >
