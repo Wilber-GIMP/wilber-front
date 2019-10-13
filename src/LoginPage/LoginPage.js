@@ -71,12 +71,34 @@ export class LoginPage extends Component{
            'password1': this.state.pass,
            'password2': this.state.pass2,
         }).then(response => {
+            console.log(response);            
             this.saveCookie(response);
         }).catch(erro => {
-            console.log(erro.response);
-            this.setState({
-                error: 'Unable to Register, check your data and try again.'
-            })
+            if(erro.response.data.email){
+                this.setState({
+                    error: erro.response.data.email.join("\n")
+                }) 
+            }else if(erro.response.data.username){
+                this.setState({
+                    error: erro.response.data.username.join("\n")
+            }) 
+            }else if(erro.response.data.password1){                
+                this.setState({
+                    error: erro.response.data.password1.join("\n")
+                })
+            }else if(erro.response.data.password2){
+                this.setState({
+                    error: erro.response.data.password2.join("\n")
+                })
+            }else if(erro.response.data.non_field_errors){
+                this.setState({
+                    error: erro.response.data.non_field_errors.join("\n")
+                })
+            }else{
+                this.setState({
+                    error: 'Unable to Register, check your data and try again.'
+                })
+            }
         });
     }
 
