@@ -53,6 +53,7 @@ export class LoginPage extends Component{
            'username': this.state.username,
            'password': this.state.pass
         }).then(response => {
+            window.alert(response);
             this.saveCookie(response);
         })
         .catch(erro => {
@@ -156,6 +157,7 @@ export class LoginPage extends Component{
                             disabled={this.state.isRegister}>Register</button>
                     </div>
                     {form}
+                        <a title="Google" class="socialaccount_provider google" href="/accounts/google/login/?process=login">Google Login</a>
                 </div>
             </div>
         );

@@ -1,30 +1,41 @@
 import React, { Component } from 'react';
 import axios from "axios";
 import './Profile.scss';
+import AssetThumb from "../AssetThumb/AssetThumb"; 
 
 class Profile extends Component{
     constructor(props){
         super(props);
+        const {id} = this.props.match.params;
         this.state = {
             owner: {
-                assets: [],
+                id: id,
+                assets:[],
                 profile: {
                     photo: ''
                 }
+            },
+            assetList: {
+                    image: '',
+                link: ''
             }
         }
     }
     
     componentDidMount() {
-        axios.get("/api/user/5/")
+        axios.get("/api/user/"+ this.state.owner.id + "/")
             .then((response) => {
-                this.setState({owner: response.data});                
+                console.log(response);
+                
+                this.setState({owner: response.data});
+            }).catch( e => {
+                console.log(e);                
             });
     }    
 
     render(){
-        console.log(this.state.owner);
         return(
+            <div>
             <div className="row">
                 <div className="col-6">
                     <h2>User Profile</h2>
@@ -36,10 +47,20 @@ class Profile extends Component{
                             <div>Country: {this.state.owner.profile.last_name}</div>
                         </div>
                 </div>
-                <div>
-                    
+                <div className="col-6">                    
                 </div>
             </div>
+            <div className="row">
+                        <h2>User Assets</h2>
+                        <div className="row">
+                            {this.state.owner.assets.map(item => {
+                                return (
+                                    <AssetThumb data={item} key={item.id} className="asset-img col-4"/>
+                                )
+                            })}
+                        </div>
+            </div>
+        </div>
         );
     }
 }

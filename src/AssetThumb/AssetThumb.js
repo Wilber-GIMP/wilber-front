@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import {Link} from "react-router-dom";
+import './AssetThumb.scss';
 
 class AssetThumb extends Component{
    render() {
        return (
-           <div className="col-4">
+           <div className="col-4 thumb">
                <Link to={{ pathname: '/asset/'+ this.props.data.id + '/'}} >
                    <figure>
                        <img src={this.props.data.image_thumbnail} alt=""/>
