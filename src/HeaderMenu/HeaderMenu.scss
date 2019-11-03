@@ -9,7 +9,7 @@
       max-height: 70px;
     }
     form{
-      width: 90%;
+      width: 85%;
     }
     .search-in{
           background-color:transparent;
@@ -27,7 +27,14 @@
       color: gray;
       position: absolute;
       font-size: 2em;
-      top: -10px;
-      right: 70px;  
+      top: 10px;
+      right: 6%;  
+      i{
+        color: $pink;
+        transition: transform 1s;
+        &:hover{
+          transform: rotate(360deg);
+        }
+      }
     }
 }
