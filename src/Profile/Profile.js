@@ -34,13 +34,17 @@ class Profile extends Component{
     }    
 
     render(){
+        let profilePic = (<i className="fas fa-user-astronaut"></i>);
+        if(this.state.owner.profile.photo){
+            // profilePic = <img url={this.state.owner.profile.photo}/>;
+        }
         return(
             <div>
             <div className="row">
                 <div className="col-6">
                     <h2>User Profile</h2>
                         <div className="user-avatar">
-                        <img url={this.state.owner.profile.photo}/>
+                        {profilePic}
                         </div>
                         <div className="user-info">
                             <div>Name: {this.state.owner.first_name} {this.state.owner.last_name} </div>
