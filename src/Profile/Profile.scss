@@ -1,3 +1,5 @@
+@import '../styles/variables';
+
 .user-avatar{
     width: 10em;
     height: 10em;
@@ -13,4 +15,17 @@
 }
 .user-info{
     font-size: 1.5em;
+}
+.socials{
+    i{
+        font-size: 3em;
+        margin: 0.3em;
+        cursor: pointer;
+        &.enabled{
+            color: $purple;
+        }
+        &.disabled{
+            color: #8c8888;
+        }
+    }
 }

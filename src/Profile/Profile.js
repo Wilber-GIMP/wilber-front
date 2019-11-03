@@ -51,7 +51,15 @@ class Profile extends Component{
                             <div>Country: {this.state.owner.profile.last_name}</div>
                         </div>
                 </div>
-                <div className="col-6">                    
+                <div className="col-6">
+                    <h2>Bio and Socials</h2>
+                    <div></div>
+                    <div className="socials">
+                        <i className="disabled fab fa-twitter-square"></i>
+                        <i className="disabled fab fa-facebook-square"></i>
+                        <i className="enabled fab fa-instagram"></i>
+                        <i className="enabled fab fa-behance-square"></i>
+                    </div>
                 </div>
             </div>
             <div className="row">
