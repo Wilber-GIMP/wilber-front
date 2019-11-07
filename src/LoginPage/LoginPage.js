@@ -39,8 +39,7 @@ export class LoginPage extends Component{
 
     saveCookie = (response) =>{
         if(response.data.key){
-            const cookies = new Cookies();
-            cookies.set('login_token', response.data.key );
+            localStorage.setItem('login_token', data);
         }
         this.setState({
             toHome: true
