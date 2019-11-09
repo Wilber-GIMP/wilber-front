@@ -52,11 +52,12 @@ export class LoginPage extends Component{
            'username': this.state.username,
            'password': this.state.pass
         }).then(response => {
-            window.alert(response);
-            this.saveCookie(response);
+            console.log(response);
+            localStorage.setItem('login_token', response.data);
+            this.setState({toHome: true});
         })
-        .catch(erro => {
-            console.log(erro);
+        .catch(error => {
+            console.log(error);
             this.setState({
                 error: 'User or Password Wrong'
             })
