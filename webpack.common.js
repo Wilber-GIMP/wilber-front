@@ -1,7 +1,7 @@
 const CleanWebPackPlugin = require('clean-webpack-plugin')
 const HtmlWebPackPlugin = require('html-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin');
-
+const BundleTracker = require('webpack-bundle-tracker');
 const path = require('path')
 
 module.exports = {
@@ -11,7 +11,7 @@ module.exports = {
     output: {
         filename: '[name].[hash].js',
         path: path.resolve('./dist'),
-        publicPath: "/"
+        publicPath: "/static/js/"
     },
     module:{
         rules:[
@@ -43,12 +43,9 @@ module.exports = {
         ]
     },
     plugins: [
-        new HtmlWebPackPlugin({
-            template: 'index.html'
-        }),
+        new HtmlWebPackPlugin({template: 'index.html'}),
         new CleanWebPackPlugin(),
-        new CopyWebpackPlugin([
-            { from: './public/static', to: 'static'}
-        ])
+        new CopyWebpackPlugin([{ from: './public/static', to: 'static'}]),
+        new BundleTracker({filename: './webpack-stats.json'})
     ],
 }
