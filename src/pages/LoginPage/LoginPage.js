@@ -36,9 +36,9 @@ export class LoginPage extends Component{
         return this.state.username.length > 0 && this.state.pass.length > 0;
     };
 
-    saveCookie = (response) =>{
+    saveToken = (response) =>{
         if(response.data.key){
-            localStorage.setItem('login_token', data);
+            localStorage.setItem('login_token', response.data.key);
         }
         this.setState({
             toHome: true
@@ -51,8 +51,8 @@ export class LoginPage extends Component{
            'username': this.state.username,
            'password': this.state.pass
         }).then(response => {
-            window.alert(response);
-            this.saveCookie(response);
+            window.alert("Success Login");
+            this.saveToken(response);
         })
         .catch(erro => {
             console.log(erro);
@@ -71,8 +71,9 @@ export class LoginPage extends Component{
            'password2': this.state.pass2,
         }).then(response => {
             console.log(response);            
-            this.saveCookie(response);
+            this.saveToken(response);
         }).catch(erro => {
+            console.log(erro);         
             if(erro.response.data.email){
                 this.setState({
                     error: erro.response.data.email.join("\n")
@@ -155,7 +156,7 @@ export class LoginPage extends Component{
                             disabled={this.state.isRegister}>Register</button>
                     </div>
                     {form}
-                        <a title="Google" class="socialaccount_provider google" href="/accounts/google/login/?process=login">Google Login</a>
+                        <a title="Google" className="socialaccount_provider google" href="/accounts/google/login/?process=login">Google Login</a>
                 </div>
             </div>
         );
