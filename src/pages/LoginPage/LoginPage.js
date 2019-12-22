@@ -51,7 +51,6 @@ export class LoginPage extends Component{
            'username': this.state.username,
            'password': this.state.pass
         }).then(response => {
-            window.alert("Success Login");
             this.saveToken(response);
         })
         .catch(erro => {
@@ -70,7 +69,6 @@ export class LoginPage extends Component{
            'password1': this.state.pass,
            'password2': this.state.pass2,
         }).then(response => {
-            console.log(response);            
             this.saveToken(response);
         }).catch(erro => {
             console.log(erro);         

@@ -29,24 +29,28 @@ export class SideMenu extends Component{
         const token = localStorage.getItem('login_token');
         if(token){
             this.setState({ isLogged : true});
-            console.log(token);
         }
+    }
+
+    logout(){
+        localStorage.removeItem('login_token');
+        this.setState({isLogged: false});
     }
 
 
     render(){
-        let loginButton = "";
+        let logButton = "";
         if(this.state.isLogged){
-            loginButton = 
-                    <li>
-                        <a  href="/">
+            logButton = 
+                    <li onClick={this.logout}>
+                        <a  href="/assets">
                                 <div className="avatar"><i className="fas fa-user-astronaut"></i>
                                 </div>
                                 <span id='getin'>Get Out</span>
                         </a>
                     </li>
         }else{
-            loginButton = 
+            logButton = 
                     <li>
                         <a  href="/login/">
                                 <div className="avatar"><i className="fas fa-arrow-up"></i>
@@ -61,7 +65,7 @@ export class SideMenu extends Component{
             <nav id="side-menu" className={"side-menu " + (this.state.isOpen? 'bt-open' : '')}>
                 <a href="#" className="bt-menu-trigger"  onClick={this.toggleMenu}><span>Menu</span></a>
                 <ul>
-                    {loginButton}
+                    {logButton}
                     {
                         this.filtersList.map((filter, index) => {
                             const className = this.state.activeIndex === index ? 'active' : '';
