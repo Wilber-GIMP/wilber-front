@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from "axios";
 import './Profile.scss';
-import AssetThumb from "../AssetThumb/AssetThumb"; 
+import AssetThumb from "../../components/AssetThumb/AssetThumb"; 
 
 class Profile extends Component{
     constructor(props){

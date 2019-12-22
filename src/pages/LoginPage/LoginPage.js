@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import './LoginPage.scss';
 import axios from "axios";
-import Cookies from 'universal-cookie';
 import {Redirect} from 'react-router-dom';
 
 export class LoginPage extends Component{
@@ -52,12 +51,11 @@ export class LoginPage extends Component{
            'username': this.state.username,
            'password': this.state.pass
         }).then(response => {
-            console.log(response);
-            localStorage.setItem('login_token', response.data);
-            this.setState({toHome: true});
+            window.alert(response);
+            this.saveCookie(response);
         })
-        .catch(error => {
-            console.log(error);
+        .catch(erro => {
+            console.log(erro);
             this.setState({
                 error: 'User or Password Wrong'
             })

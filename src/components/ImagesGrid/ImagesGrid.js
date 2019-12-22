@@ -3,10 +3,10 @@
 **/
 import React, { Component } from 'react';
 import AssetThumb from "../AssetThumb/AssetThumb"; 
-import ApiService from "../providers/ApiService";
 import "./ImagesGrid.scss";
 import axios from "axios";
-import HeaderMenu from '../HeaderMenu/HeaderMenu';
+
+const PAGES_LIMITE = 9;
 
 class ImagesGrid extends Component{
     constructor(){
@@ -29,7 +29,6 @@ class ImagesGrid extends Component{
         this.getAssets(this.state.actualPage - 9);       
     }
 
-    //Limit = 9, PageStart
     getAssets = (startPage) =>{
         let category = '';
         let query = '';
@@ -39,13 +38,12 @@ class ImagesGrid extends Component{
         if(this.state.searchQuery){
             query = 'search=' + this.state.searchQuery + '&';
         }
-        axios.get("/api/asset/?" + query + category + 'limit=9&offset=' + startPage)
+        axios.get("/api/asset/?" + query + category + 'limit=' + PAGES_LIMITE + '&offset=' + startPage)
         .then((response) => {
             this.setState({
                 assetsList: response.data.results, 
                 actualPage: startPage
             });
-            // console.log(response.data);
             if(response.data.next){
                 this.setState({
                     nextPage: true 

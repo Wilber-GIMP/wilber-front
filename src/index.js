@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import 'normalize.css/normalize.css';
 import './styles/App.scss';
-import Home from './Home/Home';
+import Home from './pages/Home/Home';
 
 ReactDOM.render(<Home />, document.getElementById('app'));
 
