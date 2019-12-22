@@ -15,7 +15,8 @@
     "react": "^16.8.4",
     "react-dom": "^16.8.4",
     "react-router-dom": "^5.0.0",
-    "universal-cookie": "^4.0.1"
+    "universal-cookie": "^4.0.1",
+    "webpack-bundle-tracker": "^0.4.3"
   },
   "scripts": {
     "build": "webpack --config webpack.prod.js",
