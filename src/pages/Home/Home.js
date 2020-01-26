@@ -7,6 +7,7 @@ import { SideMenu } from '../../components/SideMenu/SideMenu';
 import Landing from '../LandingPage/LandingPage';
 import HeaderMenu from '../../components/HeaderMenu/HeaderMenu';
 import Profile from '../Profile/Profile';
+import UserEdit from '../UserEdit/UserEdit';
 
 
 class Home extends Component{
@@ -20,6 +21,7 @@ class Home extends Component{
                     <Route path="/assets/:filter?" component={ImagesGrid}/>
                     <Route path="/asset/:id/" component={AssetPage}/>
                     <Route path="/profile/:id?" component={Profile}/>
+                    <Route path="/useredit/:id?" component={UserEdit}/>
                     <Route path="/login" component={LoginPage}/>
                 </Router>
             </div>

@@ -41,3 +41,34 @@
     cursor: pointer;
     outline: inherit;
   }
+
+  .user-avatar{
+    width: 10em;
+    height: 10em;
+    border: solid white;
+    border-radius: 20px;
+    margin-bottom: 2em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    i{
+        font-size: 7em;
+    }
+}
+
+.user-info{
+    font-size: 1.5em;
+}
+.socials{
+    i{
+        font-size: 3em;
+        margin: 0.3em;
+        cursor: pointer;
+        &.enabled{
+            color: $purple;
+        }
+        &.disabled{
+            color: #8c8888;
+        }
+    }
+}
