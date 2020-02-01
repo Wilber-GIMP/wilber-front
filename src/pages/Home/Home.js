@@ -6,8 +6,8 @@ import LoginPage from '../LoginPage/LoginPage';
 import { SideMenu } from '../../components/SideMenu/SideMenu';
 import Landing from '../LandingPage/LandingPage';
 import HeaderMenu from '../../components/HeaderMenu/HeaderMenu';
+import User from "../User/User";
 import Profile from '../Profile/Profile';
-import UserEdit from '../UserEdit/UserEdit';
 import LoginContext from '../../states/loginContext';
 
 function Home(){
@@ -23,6 +23,7 @@ function Home(){
                     <Route path="/assets/:filter?" component={ImagesGrid}/>
                     <Route path="/asset/:id/" component={AssetPage}/>
                     <Route path="/profile/:id?" component={Profile}/>
+                    <Route path="/user/:id?" component={User}/>
                     <Route path="/useredit/:id?" component={UserEdit}/>
                     <Route path="/login" component={LoginPage}/>
                     </LoginContext.Provider>

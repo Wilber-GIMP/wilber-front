@@ -19,7 +19,6 @@ class AssetPage extends Component{
     componentDidMount() {
         axios.get("/api/asset/"+ this.id + "/")
             .then((response) => {
-                console.log(response);                
                 this.setState({
                     asset: response.data,
                     owner: response.data.owner,
@@ -35,7 +34,7 @@ class AssetPage extends Component{
                 <div className="col-6">
                     <img className="asset-img"src={this.state.asset.image} alt=""/>
                     <div className="asset-att">
-                        <Link to={{ pathname: '/profile/'+ this.state.owner.id + '/'}}>
+                        <Link to={{ pathname: '/user/'+ this.state.owner.id + '/'}}>
                             <span className="owner-name">{"Made by: " + this.state.owner.first_name + " " + this.state.owner.last_name}</span>
                         </Link>
                         <AssetAttributeIcons nlikes={this.state.nlikes} ndownloads={this.state.ndownloads} assetid={this.id}/>

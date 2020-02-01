@@ -13,7 +13,7 @@ export class LoginPage extends Component{
             pass2: '',
             error: '',
             isRegister: 0,
-            toHome: false
+            toProfile: false
         }
     }
     //Same handle for Login and Registration
@@ -41,7 +41,7 @@ export class LoginPage extends Component{
             localStorage.setItem('login_token', response.data.key);
         }
         this.setState({
-            toHome: true
+            toProfile: true
         })
     };
 
@@ -51,6 +51,7 @@ export class LoginPage extends Component{
            'username': this.state.username,
            'password': this.state.pass
         }).then(response => {
+            console.log("login response", response);
             this.saveToken(response);
         })
         .catch(erro => {
@@ -108,8 +109,8 @@ export class LoginPage extends Component{
 
     render(){
         let form;
-        if(this.state.toHome){
-            return <Redirect to='/assets/'/>
+        if(this.state.toProfile){
+            return <Redirect to='/profile/'/>
         }
         if(this.state.isRegister) {
             form =  

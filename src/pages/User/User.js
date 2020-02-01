@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import axios from "axios";
-import './Profile.scss';
+import './User.scss';
 import AssetThumb from "../../components/AssetThumb/AssetThumb"; 
 
-class Profile extends Component{
+class User extends Component{
     constructor(props){
         super(props);
         const {id} = this.props.match.params;
@@ -25,7 +25,7 @@ class Profile extends Component{
     componentDidMount() {
         axios.get("/api/user/"+ this.state.owner.id + "/")
             .then((response) => {
-                // console.log(response);
+                console.log(response);
                 
                 this.setState({owner: response.data});
             }).catch( e => {
@@ -76,4 +76,4 @@ class Profile extends Component{
         );
     }
 }
-export default Profile;
+export default User;
