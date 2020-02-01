@@ -25,7 +25,7 @@ class Profile extends Component{
     componentDidMount() {
         axios.get("/api/user/"+ this.state.owner.id + "/")
             .then((response) => {
-                // console.log(response);
+                console.log(response);
                 
                 this.setState({owner: response.data});
             }).catch( e => {

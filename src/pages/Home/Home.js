@@ -24,7 +24,6 @@ function Home(){
                     <Route path="/asset/:id/" component={AssetPage}/>
                     <Route path="/profile/:id?" component={Profile}/>
                     <Route path="/user/:id?" component={User}/>
-                    <Route path="/useredit/:id?" component={UserEdit}/>
                     <Route path="/login" component={LoginPage}/>
                     </LoginContext.Provider>
                 </Router>

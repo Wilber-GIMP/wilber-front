@@ -25,6 +25,10 @@ module.exports = merge(common, {
             '/accounts/': {
                 target: "http://localhost:8000",
                 secure: false,
+            },
+            '/user/': {
+                target: "http://localhost:8000",
+                secure: false,
             }
         }
     }

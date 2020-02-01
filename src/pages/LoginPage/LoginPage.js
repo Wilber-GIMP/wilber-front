@@ -51,7 +51,6 @@ export class LoginPage extends Component{
            'username': this.state.username,
            'password': this.state.pass
         }).then(response => {
-            console.log("login response", response);
             this.saveToken(response);
         })
         .catch(erro => {
@@ -110,7 +109,7 @@ export class LoginPage extends Component{
     render(){
         let form;
         if(this.state.toProfile){
-            return <Redirect to='/profile/'/>
+            return <Redirect to={'/profile/'+ this.state.username}/>
         }
         if(this.state.isRegister) {
             form =  
