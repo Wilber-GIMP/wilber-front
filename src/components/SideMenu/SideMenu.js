@@ -1,13 +1,13 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useContext} from 'react';
 import './SideMenu.scss';
 import {Link} from 'react-router-dom';
-
+import LoginContext from '../../states/loginContext';
 
 export function SideMenu(props){
+    const {isLogged,setIslogged } = useContext(LoginContext);
     const filtersList = ['All Assets','Brushes', 'Patterns', 'Palettes'];
     const [isOpen, setIsOPen] = useState(false);
     const [activeIndex, setActiveIndex] = useState(0);
-    const [isLogged,setIsLogged] = useState(false);
 
     const toggleMenu = () => {
         setIsOPen(!isOpen);
@@ -20,14 +20,14 @@ export function SideMenu(props){
     useEffect(() => {
         const token = localStorage.getItem('login_token');
         if(token){
-            setIsLogged(true);
+            setIslogged(true);
         }
     }, []);
 
 
     const logout = () => {
         localStorage.removeItem('login_token');
-        setIsLogged(false);
+        setLogout;
     }
 
         let logButton = "";

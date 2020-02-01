@@ -8,15 +8,15 @@ import Landing from '../LandingPage/LandingPage';
 import HeaderMenu from '../../components/HeaderMenu/HeaderMenu';
 import Profile from '../Profile/Profile';
 import UserEdit from '../UserEdit/UserEdit';
-import LoginContext from '../../context/loginContext';
+import LoginContext from '../../states/loginContext';
 
 function Home(){
-        const [iSlogged, setIslogged ] =  React.useState(false);
-
+        const [isLogged, setIslogged ] =  React.useState(false);
+        
         return(
             <div className="container">
                 <Router>
-                    <LoginContext.Provider value={iSlogged,setIslogged}>
+                    <LoginContext.Provider value={{isLogged, setIslogged}}>
                     <HeaderMenu />
                     <SideMenu/>
                     <Route exact path="/" component={Landing}/>
