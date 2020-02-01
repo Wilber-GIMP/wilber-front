@@ -1,48 +1,39 @@
-import React, {Component} from 'react';
+import React, {useState, useEffect} from 'react';
 import './SideMenu.scss';
 import {Link} from 'react-router-dom';
 
 
-export class SideMenu extends Component{
-    filtersList = ['All Assets','Brushes', 'Patterns', 'Palettes'];
-    constructor(props){
-        super(props);
-        this.state = {
-            isOpen : false,
-            activeIndex : 0,
-            isLogged: false
-        }
+export function SideMenu(props){
+    const filtersList = ['All Assets','Brushes', 'Patterns', 'Palettes'];
+    const [isOpen, setIsOPen] = useState(false);
+    const [activeIndex, setActiveIndex] = useState(0);
+    const [isLogged,setIsLogged] = useState(false);
+
+    const toggleMenu = () => {
+        setIsOPen(!isOpen);
     }
 
-    toggleMenu = () => {
-        this.setState({
-            isOpen: !this.state.isOpen
-        })
-    }
-    handleClick = (index) =>{
-        this.setState({
-            activeIndex: index
-        })
+    const handleClick = (index) =>{
+        setActiveIndex(index);
     }
 
-    componentDidMount() {
+    useEffect(() => {
         const token = localStorage.getItem('login_token');
         if(token){
-            this.setState({ isLogged : true});
+            setIsLogged(true);
         }
-    }
+    }, []);
 
-    logout(){
+
+    const logout = () => {
         localStorage.removeItem('login_token');
-        this.setState({isLogged: false});
+        setIsLogged(false);
     }
 
-
-    render(){
         let logButton = "";
-        if(this.state.isLogged){
+        if(isLogged){
             logButton = 
-                    <li onClick={this.logout}>
+                    <li onClick={logout}>
                         <a  href="/assets">
                                 <div className="avatar"><i className="fas fa-user-astronaut"></i>
                                 </div>
@@ -61,16 +52,16 @@ export class SideMenu extends Component{
         }
         return(
             <div>
-            <div className={'menu-overlay ' + (this.state.isOpen? 'overlay-open' : '')}  onClick={this.toggleMenu}></div>
-            <nav id="side-menu" className={"side-menu " + (this.state.isOpen? 'bt-open' : '')}>
-                <a href="#" className="bt-menu-trigger"  onClick={this.toggleMenu}><span>Menu</span></a>
+            <div className={'menu-overlay ' + (isOpen? 'overlay-open' : '')}  onClick={toggleMenu}></div>
+            <nav id="side-menu" className={"side-menu " + (isOpen? 'bt-open' : '')}>
+                <a href="#" className="bt-menu-trigger"  onClick={toggleMenu}><span>Menu</span></a>
                 <ul>
                     {logButton}
                     {
-                        this.filtersList.map((filter, index) => {
-                            const className = this.state.activeIndex === index ? 'active' : '';
+                        filtersList.map((filter, index) => {
+                            const className = activeIndex === index ? 'active' : '';
                             return(                            
-                                 <li className={className} key={index} onClick={() => this.handleClick(index)}>
+                                 <li className={className} key={index} onClick={() => handleClick(index)}>
                                  <Link to={{pathname : ("/assets/" + filter),  
                                         key : filter
                                     }}>{filter}</Link></li>
@@ -82,5 +73,4 @@ export class SideMenu extends Component{
              </nav>
             </div>
         );
-    }
 }
