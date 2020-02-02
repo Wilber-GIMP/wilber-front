@@ -1,5 +1,6 @@
-import React, { Component } from 'react';
+import React,{useState, useEffect } from 'react';
 import {BrowserRouter as Router, Route } from "react-router-dom";
+import axios from 'axios';
 import ImagesGrid from '../../components/ImagesGrid/ImagesGrid';
 import AssetPage from '../AssetPage/AssetPage';
 import LoginPage from '../LoginPage/LoginPage';
@@ -11,7 +12,23 @@ import Profile from '../Profile/Profile';
 import LoginContext from '../../states/loginContext';
 
 function Home(){
-        const [isLogged, setIslogged ] =  React.useState(false);
+        const [isLogged, setIslogged ] =  useState(false);
+
+        useEffect(() => {
+            const token = localStorage.getItem('login_token');
+            console.log("Tokeen save", token);
+            if(token){
+                setIslogged(true);
+                axios.interceptors.request.use(function (config) {
+                    console.log("Tokeen intercept", token);
+                    config.headers['Authorization'] = token;
+                
+                    return config;
+                });
+            }
+
+        }, []);
+    
         
         return(
             <div className="container">

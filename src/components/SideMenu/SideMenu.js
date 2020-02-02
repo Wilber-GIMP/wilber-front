@@ -17,13 +17,6 @@ export function SideMenu(props){
         setActiveIndex(index);
     }
 
-    useEffect(() => {
-        const token = localStorage.getItem('login_token');
-        if(token){
-            setIslogged(true);
-        }
-    }, []);
-
 
     const logout = () => {
         localStorage.removeItem('login_token');
