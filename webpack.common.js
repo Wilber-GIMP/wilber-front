@@ -1,5 +1,5 @@
-const CleanWebPackPlugin = require('clean-webpack-plugin')
-const HtmlWebPackPlugin = require('html-webpack-plugin')
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const HtmlWebPackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const BundleTracker = require('webpack-bundle-tracker');
 const path = require('path')
@@ -44,7 +44,7 @@ module.exports = {
     },
     plugins: [
         new HtmlWebPackPlugin({template: 'index.html'}),
-        new CleanWebPackPlugin(),
+        new CleanWebpackPlugin(),
         new CopyWebpackPlugin([{ from: './public/static', to: 'static'}]),
         new BundleTracker({filename: './webpack-stats.json'})
     ],
